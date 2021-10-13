@@ -5,7 +5,7 @@ import {
   useFonts,
   Oswald_400Regular,
 } from '@expo-google-fonts/oswald';
-import Login from '@components/login/login';
+import Cadastro from '@pages/cadastro/cadastro';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -18,7 +18,7 @@ export default function App() {
     return (
       <View style={styles.fundo}>
         <View style={styles.AndroidSafeArea}>
-          <Login/>
+          <Cadastro />
         </View>
       </View>
     );

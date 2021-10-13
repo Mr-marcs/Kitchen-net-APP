@@ -17,7 +17,8 @@ module.exports = function(api) {
           alias: {
             '@components': './src/components',
             '@styles': './src/styles',
-            '@assets' : './src/assets',
+            '@assets': './src/assets',
+            '@pages': './src/pages',
           },
         },
       ],
