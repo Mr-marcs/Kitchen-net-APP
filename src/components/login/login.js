@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableHighlight } from 'react-native';
 import formStyle from '@styles/form';
 
 const Login = () => {
@@ -14,6 +14,15 @@ const Login = () => {
                 <TextInput placeholder="Email..." style={formStyle.input}></TextInput>
                 <TextInput placeholder="Senha..." style={formStyle.input}></TextInput>
             </View>
+            <View style={formStyle.formExtra}>
+                <Text style={formStyle.formExtraText}>Esqueci a senha</Text>
+            </View>
+            <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" style={[formStyle.button, formStyle.buttonLogar]}>
+                <Text>Logar</Text>
+            </TouchableHighlight>
+            <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" style={[formStyle.button, formStyle.buttonCadastrar]}>
+                <Text style={formStyle.buttonCadastrarText}>Cadastrar</Text>
+            </TouchableHighlight>
         </View>
     );
 }

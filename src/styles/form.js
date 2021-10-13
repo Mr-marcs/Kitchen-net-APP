@@ -23,7 +23,34 @@ const style = StyleSheet.create({
         marginTop: 30,
         borderColor: '#F24333',
         borderWidth: 1,
-    }
+    },
+    formExtra: {
+        marginTop: 15,
+        width: "90%",
+        alignItems: 'flex-end',
+    },
+    formExtraText: {
+        fontSize: 15,
+    },
+    button: {
+        width: "90%",
+        borderWidth: 1,
+        borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 15,
+        marginTop: 30,
+    },
+    buttonLogar: {
+        borderColor: '#F24333',
+    },
+    buttonCadastrar: {
+        borderColor: '#FFF',
+        backgroundColor: '#F24333',
+    },
+    buttonCadastrarText: {
+        color: '#FFF',
+    },
 });
 
 export default style;
