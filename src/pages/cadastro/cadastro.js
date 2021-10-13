@@ -9,19 +9,12 @@ const Cadastro = () => {
                 style={formStyle.logo}
                 source={require('@assets/imgs/logo.png')}
             />
-            <Text style={formStyle.titulo}>Login</Text>
+            <Text style={formStyle.titulo}>Cadastro</Text>
             <View style={formStyle.form}>
+                <TextInput placeholder="Nome de Usuário..." style={formStyle.input}></TextInput>
                 <TextInput placeholder="Email..." style={formStyle.input}></TextInput>
                 <TextInput placeholder="Senha..." style={formStyle.input}></TextInput>
             </View>
-            <View style={formStyle.formExtra}>
-                <TouchableOpacity onPress={() => {alert('Pressed!')}}>
-                    <Text style={formStyle.formExtraText}>Esqueci a senha</Text>
-                </TouchableOpacity>
-            </View>
-            <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" style={[formStyle.button, formStyle.buttonLogar]} onPress={() => alert('Pressed!')}>
-                <Text>Logar</Text>
-            </TouchableHighlight>
             <TouchableHighlight activeOpacity={0.6} underlayColor="#bf3528" style={[formStyle.button, formStyle.buttonCadastrar]} onPress={() => alert('Pressed!')}>
                 <Text style={formStyle.buttonCadastrarText}>Cadastrar</Text>
             </TouchableHighlight>
