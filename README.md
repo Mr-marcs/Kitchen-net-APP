@@ -16,24 +16,24 @@ $ npm start
 
 # Progresso telas:
 
-[X] - login
-[ ] - cadastro
-[ ] - home
-[ ] - feed
-[ ] - receita_home
-[ ] - receita_descrição
-[ ] - etapas
-[ ] - etapa
-[ ] - conclusão_receita
-[ ] - receitas_home
-[ ] - minhas_receitas
-[ ] - lista_receitas
-[ ] - notificação
-[ ] - adicionar_receita
-[ ] - adicionar_etapa
-[ ] - configurações
-[ ] - perfil
-[ ] - conquistas
-[ ] - buscar
-[ ] - lista_receita
+- [X] login
+- [ ] cadastro
+- [ ] home
+- [ ] feed
+- [ ] receita_home
+- [ ] receita_descrição
+- [ ] etapas
+- [ ] etapa
+- [ ] conclusão_receita
+- [ ] receitas_home
+- [ ] minhas_receitas
+- [ ] lista_receitas
+- [ ] notificação
+- [ ] adicionar_receita
+- [ ] adicionar_etapa
+- [ ] configurações
+- [ ] perfil
+- [ ] conquistas
+- [ ] buscar
+- [ ] lista_receita
 
