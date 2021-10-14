@@ -17,7 +17,7 @@ $ npm start
 # Progresso telas:
 
 - [X] login
-- [ ] cadastro
+- [X] cadastro
 - [ ] home
 - [ ] feed
 - [ ] receita_home

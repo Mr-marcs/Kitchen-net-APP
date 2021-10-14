@@ -1,11 +1,16 @@
+import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, Text, View, Platform, StatusBar } from 'react-native';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   Oswald_400Regular,
 } from '@expo-google-fonts/oswald';
+import Login from '@pages/login/login';
 import Cadastro from '@pages/cadastro/cadastro';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -16,25 +21,12 @@ export default function App() {
   }
   else{
     return (
-      <View style={styles.fundo}>
-        <View style={styles.AndroidSafeArea}>
-          <Cadastro />
-        </View>
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Login" component={Login}/>
+          <Stack.Screen name="Cadastro" component={Cadastro}/>
+        </Stack.Navigator>
+      </NavigationContainer>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  fundo: {
-    flex: 1,
-    backgroundColor: '#fff',
-    fontFamily: 'Oswald_400Regular',
-  },
-  AndroidSafeArea: {
-    flex: 1,
-    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight+15 : 15,
-    paddingLeft: 20,
-    paddingRight: 20,
-  },
-});
