@@ -13,36 +13,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
-  let [fontsLoaded] = useFonts({
-    Oswald_400Regular,
-  });
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-  else{
     return (
-      <NavigationContainer>
+        <NavigationContainer>
         <Stack.Navigator initialRouteName="AreaLogin" screenOptions={{headerShown: false}}>
-          <Stack.Screen name="AreaLogin" component={AreaLogin}/>
+            <Stack.Screen name="AreaLogin" component={AreaLogin}/>
+            <Stack.Screen name="AreaAcessada" component={AreaAcessada}/>
         </Stack.Navigator>
-      </NavigationContainer>
+        </NavigationContainer>
     );
-  }
-}
-
-const AreaLogin = () => {
-  return(
-    <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Login" component={Login}/>
-      <Stack.Screen name="Cadastro" component={Cadastro}/>
-    </Stack.Navigator>
-  );
-}
-
-const AreaAcessada = () => {
-  return(
-    <Text>a</Text>
-  );
 }
 
 export default App;
