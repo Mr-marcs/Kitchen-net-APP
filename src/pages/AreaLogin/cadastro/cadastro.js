@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
 import formStyle from '@styles/form';
-import Screen from '@components/screen';
+import Screen from '@components/screen/screen';
 import Global from '@styles/global';
 import Icon from 'react-native-vector-icons/Ionicons';
 
