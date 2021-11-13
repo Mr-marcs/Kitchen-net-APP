@@ -1,38 +1,28 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Alert, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Alert, TouchableHighlight } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const Indicator = () => {
-    return(
-        <View 
-
-        />
-    );
-}
-
 const CarouselPopularity = () => {
-    const [CarouselEscolhido, setCarouselEscolhido] = useState(false);
-    /*const [active,setActive] = useState("curtidas");
-    function curtidas() {
-        if("curtidas" === active) {
-            return <Text>CU</Text>
-        }
-    }*/
     return (
         <View style={style.container}>
-            <ScrollView style={style.scroll} horizontal>
-                <TouchableOpacity style={style.item} >
-                    <Text style={style.textcontainer}>Mais curtidas</Text>
-                </TouchableOpacity>
-                <View style={style.separador}></View>
-                <View style={style.item}>
-                    <Text style={style.textcontainer}>Mais recentes</Text>
+            <ScrollView horizontal>
+                <View style={style.itemContainer}>
+                    <TouchableHighlight underlayColor="#ddd" activeOpacity={1} onPress={() => alert("lol")} style={style.item} >
+                        <Text>Mais curtidas</Text>
+                    </TouchableHighlight>
                 </View>
                 <View style={style.separador}></View>
-                <View style={style.item}>
-                    <Text style={style.textcontainer}>Em alta</Text>
+                <View style={style.itemContainer}>
+                    <TouchableHighlight underlayColor="#ddd" activeOpacity={1} onPress={() => alert("lol")} style={style.item} >
+                        <Text>Mais recentes</Text>
+                    </TouchableHighlight>
                 </View>
-                <Indicator />
+                <View style={style.separador}></View>
+                <View style={style.itemContainer}>
+                    <TouchableHighlight underlayColor="#ddd" activeOpacity={1} onPress={() => alert("lol")} style={style.item} >
+                        <Text>Em alta</Text>
+                    </TouchableHighlight>
+                </View>
             </ScrollView>
         </View>
     );
@@ -41,10 +31,11 @@ const CarouselPopularity = () => {
 const style = StyleSheet.create({
     container:{
         marginTop: 20,
-        height: 40,
+        flexDirection: 'row',
     },
-    scroll:{
-        flex: 1,
+    itemContainer:{
+        paddingLeft: 16,
+        paddingRight: 16,
     },
     textcontainer: {
         fontSize: 16,
@@ -56,9 +47,8 @@ const style = StyleSheet.create({
         backgroundColor: '#909090',
     },
     item:{
-        justifyContent: 'center',
-        padding: 12,
-        backgroundColor: '#fff'
+        borderRadius: 20,
+        padding: 5,
     },
 });
 
