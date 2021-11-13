@@ -1,7 +1,7 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '@pages/AreaAcessada/home/home';
+import Feed from '@pages/AreaAcessada/feed/feed';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ChefHat from '@assets/svg/chefhat.svg';
 import Panela from '@assets/svg/panela.svg';
@@ -22,7 +22,7 @@ const BottomTabs = () => {
                     paddingVertical: 2,
                     paddingBottom: 3,
                 },
-            }} 
+            }}
         >
             <Tab.Screen 
                 name="Home" 
@@ -37,7 +37,7 @@ const BottomTabs = () => {
             />
             <Tab.Screen 
                 name="Feed" 
-                component={Home}
+                component={Feed}
                 options={{
                   tabBarIcon: ({color}) => {
                     return(

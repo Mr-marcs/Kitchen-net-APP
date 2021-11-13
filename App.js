@@ -7,7 +7,6 @@ import {
 } from '@expo-google-fonts/oswald';
 import Login from '@pages/AreaLogin/login/login';
 import Cadastro from '@pages/AreaLogin/cadastro/cadastro';
-import Home from '@pages/AreaAcessada/home/home';
 import AreaAcessada from '@components/bottomTabs/bottomTabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
