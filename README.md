@@ -6,34 +6,13 @@ Um APP de cozinhar para o TCC usando React Native e Node.
 
 ## Como iniciar:
 
+Instalar as dependencias:
+``` bash
+$ npm i
+```
+
 Colocar o seguinte comando no CMD e vai rodar o client do expo:
 
 ``` bash
 $ npm start
 ```
-
---Vou apagar isso depois d:
-
-# Progresso telas:
-
-- [X] login
-- [X] cadastro
-- [ ] home
-- [ ] feed
-- [ ] receita_home
-- [ ] receita_descrição
-- [ ] etapas
-- [ ] etapa
-- [ ] conclusão_receita
-- [ ] receitas_home
-- [ ] minhas_receitas
-- [ ] lista_receitas
-- [ ] notificação
-- [ ] adicionar_receita
-- [ ] adicionar_etapa
-- [ ] configurações
-- [ ] perfil
-- [ ] conquistas
-- [ ] buscar
-- [ ] lista_receita
-
