@@ -1,16 +1,15 @@
 import 'react-native-gesture-handler';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   Oswald_400Regular,
 } from '@expo-google-fonts/oswald';
-import Login from '@pages/AreaLogin/login/login';
-import Cadastro from '@pages/AreaLogin/cadastro/cadastro';
-import AreaAcessada from '@components/bottomTabs/bottomTabs';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
+import Routes from '@src/routes'
+import * as eva from '@eva-design/eva';
+import { ApplicationProvider } from '@ui-kitten/components';
+import { default as theme } from '@assets/custom-theme.json'; // <-- Import app theme
 
 const Stack = createNativeStackNavigator();
 
@@ -23,23 +22,11 @@ const App = () => {
   }
   else{
     return (
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="AreaAcessada" screenOptions={{headerShown: false}}>
-          <Stack.Screen name="AreaLogin" component={AreaLogin}/>
-          <Stack.Screen name="AreaAcessada" component={AreaAcessada}/>
-        </Stack.Navigator>
-      </NavigationContainer>
+      <ApplicationProvider {...eva} theme={{...eva.light, ...theme}}>
+        <Routes />
+      </ApplicationProvider>
     );
   }
-}
-
-const AreaLogin = () => {
-  return(
-    <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
-      <Stack.Screen name="Login" component={Login}/>
-      <Stack.Screen name="Cadastro" component={Cadastro}/>
-    </Stack.Navigator>
-  );
 }
 
 export default App;

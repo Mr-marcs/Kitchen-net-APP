@@ -1,13 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Layout } from '@ui-kitten/components';
 import Global from '@styles/global';
 
 class Screen extends React.Component{
     render(){
         return(
-            <View style={Global.fundo}>
+            <Layout style={Global.fundo}>
                 {this.props.children}
-            </View>
+            </Layout>
         );
     }
 }

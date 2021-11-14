@@ -1,19 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, Image, TouchableHighlight, ScrollView } from 'react-native';
 import Screen from '@components/screen/screen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Header from '@components/header/header';
 import RecomendacoesCategoria from '@components/recomendacoes_categoria/recomendacoes_categoria';
 import CarouselPopularity from '@components/carouselPopularity/carouselPopularity';
+import { Layout, Text } from '@ui-kitten/components';
 
 const Stack = createNativeStackNavigator();
 
 const Home = () => {
     return (
-      <View style={style.container}>
+      <ScrollView  style={style.container}>
         <Header name="Home"/>
         <Screen>
-            <View style={style.content}>
+            <Layout style={style.content}>
                 <Text style={style.titulo}>Olá, usuário</Text>
                 <Text style={style.subTitulo}>O que gostaria de cozinhar hoje?</Text>
                 <RecomendacoesCategoria name="Sobremesas"/>
@@ -21,9 +22,9 @@ const Home = () => {
                 <RecomendacoesCategoria name="Italiano"/>
                 <RecomendacoesCategoria name="Árabe"/>
                 <CarouselPopularity />
-            </View>
+            </Layout>
         </Screen>
-      </View>
+      </ScrollView>
     );
 }
 
