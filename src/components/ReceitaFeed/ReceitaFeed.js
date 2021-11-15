@@ -1,18 +1,23 @@
 import React from 'react';
-import { StyleSheet, View, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, TouchableHighlight } from 'react-native';
 import { Layout, Text } from '@ui-kitten/components';
+import Header from '@components/ReceitaFeed/header/header'
+import ImageRecipe from './imageRecipe/ImageRecipe';
+import RecipeInfo from './RecipeInfo/RecipeInfo';
 
 const ReceitaFeed = () => {
   return (
     <Layout style={style.container}>
-      <Text>aloaloalo</Text>
+      <Header />
+      <ImageRecipe />
+      <RecipeInfo />
     </Layout>
   );
 }
 
 const style = StyleSheet.create({
   container:{
-    flex: 1,
+    
   },
 });
 
