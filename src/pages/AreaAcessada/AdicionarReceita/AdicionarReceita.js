@@ -5,8 +5,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Layout, Text } from '@ui-kitten/components';
 import HeaderSemBuscar from '@components/HeaderSemBucar/HeaderSemBuscar';
 
-const Stack = createNativeStackNavigator();
-
 const AdicionarReceita = () => {
     return (
       <ScrollView  style={style.container}>

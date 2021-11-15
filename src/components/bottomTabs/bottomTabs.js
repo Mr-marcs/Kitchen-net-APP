@@ -8,10 +8,11 @@ import ChefHat from '@assets/svg/chefhat.svg';
 import Panela from '@assets/svg/panela.svg';
 import Perfil from '@pages/AreaAcessada/Perfil/Perfil';
 import AdicionarReceita from '@pages/AreaAcessada/AdicionarReceita/AdicionarReceita';
+import { View } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabs = () => {
+const BottomTabs = ({ navigation }) => {
     return (
         <Tab.Navigator 
             initialRouteName="Home" 
@@ -51,18 +52,21 @@ const BottomTabs = () => {
             />
             <Tab.Screen 
                 name="AdicionarReceita" 
-                component={AdicionarReceita}
+                component={View}
                 options={{
                     tabBarIcon: ({color}) => {
                         return(
                             <Panela width={38} height={38} fill={color} />
                         );
                     },
-                    tabBarStyle: {
-                        display: 'none',
-                    },
                     tabBarLabel: () => null,
                 }}
+                listeners={() => ({
+                    tabPress: (e) => {
+                        e.preventDefault();
+                        navigation.navigate('AdicionarReceita');
+                    }
+                })}
             />
             <Tab.Screen 
                 name="Receita" 

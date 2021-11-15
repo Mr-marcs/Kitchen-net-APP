@@ -2,9 +2,10 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import Login from '@pages/AreaLogin/login/login';
 import Cadastro from '@pages/AreaLogin/cadastro/cadastro';
-import AreaAcessada from '@components/bottomTabs/bottomTabs';
+import bottomTabs from '@components/bottomTabs/bottomTabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import AdicionarReceita from '@pages/AreaAcessada/AdicionarReceita/AdicionarReceita';
 
 
 const Stack = createNativeStackNavigator();
@@ -25,6 +26,15 @@ const AreaLogin = () => {
     <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={Login}/>
       <Stack.Screen name="Cadastro" component={Cadastro}/>
+    </Stack.Navigator>
+  );
+}
+
+const AreaAcessada = () => {
+  return(
+    <Stack.Navigator initialRouteName="bottomTabs" screenOptions={{headerShown: false}}>
+      <Stack.Screen name="bottomTabs" component={bottomTabs}/>
+      <Stack.Screen name="AdicionarReceita" component={AdicionarReceita}/>
     </Stack.Navigator>
   );
 }
