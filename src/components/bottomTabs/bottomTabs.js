@@ -2,9 +2,12 @@ import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '@pages/AreaAcessada/home/home';
 import Feed from '@pages/AreaAcessada/feed/feed';
+import Receita from '@pages/AreaAcessada/Receita/Receita';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import ChefHat from '@assets/svg/chefhat.svg';
 import Panela from '@assets/svg/panela.svg';
+import Perfil from '@pages/AreaAcessada/Perfil/Perfil';
+import AdicionarReceita from '@pages/AreaAcessada/AdicionarReceita/AdicionarReceita';
 
 const Tab = createBottomTabNavigator();
 
@@ -48,19 +51,22 @@ const BottomTabs = () => {
             />
             <Tab.Screen 
                 name="AdicionarReceita" 
-                component={Home}
+                component={AdicionarReceita}
                 options={{
                     tabBarIcon: ({color}) => {
                         return(
                             <Panela width={38} height={38} fill={color} />
                         );
                     },
+                    tabBarStyle: {
+                        display: 'none',
+                    },
                     tabBarLabel: () => null,
                 }}
             />
             <Tab.Screen 
                 name="Receita" 
-                component={Home}
+                component={Receita}
                 options={{
                     tabBarIcon: ({color}) => {
                         return(
@@ -71,7 +77,7 @@ const BottomTabs = () => {
             />
             <Tab.Screen 
                 name="Perfil" 
-                component={Home}
+                component={Perfil}
                 options={{
                     tabBarIcon: ({color}) => {
                         return(
