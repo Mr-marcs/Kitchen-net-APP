@@ -6,6 +6,9 @@ import bottomTabs from '@components/bottomTabs/bottomTabs';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import AdicionarReceita from '@pages/AreaAcessada/AdicionarReceita/AdicionarReceita';
+import Configuracoes from '@pages/AreaAcessada/Configuracoes/Configuracoes';
+import EditarPerfil from '@pages/AreaAcessada/EditarPerfil/EditarPerfil';
+import MudarSenha from '@pages/AreaAcessada/MudarSenha/MudarSenha';
 
 
 const Stack = createNativeStackNavigator();
@@ -35,6 +38,9 @@ const AreaAcessada = () => {
     <Stack.Navigator initialRouteName="bottomTabs" screenOptions={{headerShown: false}}>
       <Stack.Screen name="bottomTabs" component={bottomTabs}/>
       <Stack.Screen name="AdicionarReceita" component={AdicionarReceita}/>
+      <Stack.Screen name="Configuracoes" component={Configuracoes} />
+      <Stack.Screen name="EditarPerfil" component={EditarPerfil} />
+      <Stack.Screen name="MudarSenha" component={MudarSenha}/>
     </Stack.Navigator>
   );
 }

@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { Layout, Text, Avatar } from '@ui-kitten/components';
-import pfp from '@assets/imgs/pfp.jpg';
+import PfpBigImage from '@components/pfpBigImage/pfpBigImage';
 
 const PersonalInfo = () => {
     return (
       <Layout style={style.container}>
-          <Image source={pfp} style={style.pfp}/>
+          <PfpBigImage />
           <Text style={style.titulo}>Pedro H. Santos Andrade</Text>
           <Layout style={style.row}>
               <Layout style={style.center}>
@@ -27,12 +27,6 @@ const style = StyleSheet.create({
         marginTop: 20,
         flex: 1,
         alignItems: 'center',
-    },
-    pfp: {
-        width: 200,
-        height: 200,
-        borderRadius: 100,
-        marginBottom: 10,
     },
     titulo: {
         fontSize: 20,
