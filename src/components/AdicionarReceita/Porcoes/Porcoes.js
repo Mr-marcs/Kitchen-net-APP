@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { StyleSheet } from 'react-native';
 import { Layout, Text } from '@ui-kitten/components';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Icon from 'react-native-vector-icons/Feather';
 
 const Porcoes = () => {
     const [portions, setPortions] = useState(1);
@@ -19,11 +20,11 @@ const Porcoes = () => {
             <Text>Porções:</Text>
             <Layout style={style.containerPortions}>
                 <TouchableOpacity style={style.minus} onPress={Diminuir}>
-                    <Text style={style.button1}>-</Text>
+                    <Icon name="minus-circle" color="#000" size={24}/>
                 </TouchableOpacity>
                 <Text style={style.total}>{portions}</Text>
                 <TouchableOpacity style={style.minus} onPress={Aumentar}>
-                    <Text style={style.button2}>+</Text>
+                    <Icon name="plus-circle" color="#000" size={24}/>
                 </TouchableOpacity>
             </Layout>
         </Layout>
@@ -41,23 +42,6 @@ const style = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-evenly',
         alignItems: 'center',
-    },
-    minus: {
-        width: 30,
-        height: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderRadius: 15,
-        borderWidth: 1,
-        borderColor: '#000',
-    },
-    button1: {
-        paddingBottom: 5,
-        fontSize: 40,
-    },
-    button2: {
-        paddingBottom: 3,
-        fontSize: 30,
     },
     total: {
         fontSize: 28,
