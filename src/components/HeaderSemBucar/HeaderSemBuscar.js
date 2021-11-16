@@ -1,5 +1,4 @@
 import { useNavigation } from '@react-navigation/core';
-import { Layout } from '@ui-kitten/components';
 import React from 'react';
 import { StyleSheet, Text, View, Platform, StatusBar } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';

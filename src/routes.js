@@ -9,6 +9,7 @@ import AdicionarReceita from '@pages/AreaAcessada/AdicionarReceita/AdicionarRece
 import Configuracoes from '@pages/AreaAcessada/Configuracoes/Configuracoes';
 import EditarPerfil from '@pages/AreaAcessada/EditarPerfil/EditarPerfil';
 import MudarSenha from '@pages/AreaAcessada/MudarSenha/MudarSenha';
+import AdicionarEtapa from '@pages/AreaAcessada/AdicionarEtapa/AdicionarEtapa';
 
 
 const Stack = createNativeStackNavigator();
@@ -41,6 +42,7 @@ const AreaAcessada = () => {
       <Stack.Screen name="Configuracoes" component={Configuracoes} />
       <Stack.Screen name="EditarPerfil" component={EditarPerfil} />
       <Stack.Screen name="MudarSenha" component={MudarSenha}/>
+      <Stack.Screen name="AdicionarEtapa" component={AdicionarEtapa}/>
     </Stack.Navigator>
   );
 }
