@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
 const ConfigButton = () => {
     const navigation = useNavigation();
     return (

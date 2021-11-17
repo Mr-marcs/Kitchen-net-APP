@@ -1,13 +1,15 @@
 import React from 'react';
+import { useNavigation } from '@react-navigation/core';
 import { StyleSheet, ImageBackground, TouchableHighlight, Image, View } from 'react-native';
 import { Layout, Text } from '@ui-kitten/components';
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
-import Icon from 'react-native-vector-icons/Entypo';
 import Icon2 from 'react-native-vector-icons/AntDesign';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const Receita = () => {
+    const navigation = useNavigation();
     return (
-      <Layout style={style.container}>
+      <TouchableOpacity style={style.container} onPress={() => navigation.navigate("ReceitaHome")}>
         <ImageBackground source={imagencategoria} style={style.container} imageStyle={style.imagemfundo}>
             <Layout style={style.effects}>
                 <Image source={imagencategoria} style={style.imagem}/>
@@ -15,7 +17,6 @@ const Receita = () => {
                     <View>
                         <View style={style.linha1}>
                             <Text style={style.nome}>Frango Assado loukoaaaaaa</Text>
-                            <Icon name="dots-three-vertical" size={24} color="#fff"/>
                         </View>
                         <View style={style.linha2}>
                             <Text style={style.autorReceita}>By: Juliana Cardenia</Text>
@@ -31,7 +32,7 @@ const Receita = () => {
                 </View>
             </Layout>
         </ImageBackground>
-      </Layout>
+      </TouchableOpacity>
     );
 }
 
