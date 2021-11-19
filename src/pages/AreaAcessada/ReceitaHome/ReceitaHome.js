@@ -5,8 +5,10 @@ import Header from '@components/ReceitaHome/Header/Header';
 import ReceitaMenu from '@components/ReceitaHome/ReceitaMenu/ReceitaMenu';
 import Descricao from '@components/ReceitaHome/Descricao/Descricao';
 import Comentarios from '@components/ReceitaHome/Comentarios/Comentarios';
+import { useNavigation } from '@react-navigation/core';
 
 const ReceitaHome = () => {
+    const navigation = useNavigation();
     const [selectedIndex, setSelectedIndex] = useState(0);
     return (
         <View style={style.container}>
@@ -26,7 +28,7 @@ const ReceitaHome = () => {
                 </TabView>
             </ScrollView>
             <Layout style={style.comecar}>
-                <TouchableOpacity style={style.button}>
+                <TouchableOpacity onPress={() => navigation.navigate("Etapa")} style={style.button}>
                     <Text style={style.comecarTexto}>Começar</Text>
                 </TouchableOpacity>
             </Layout>

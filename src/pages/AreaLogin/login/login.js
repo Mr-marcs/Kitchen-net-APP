@@ -21,7 +21,7 @@ const Login = ({ navigation }) => {
                         <Text style={formStyle.formExtraText}>Esqueci a senha</Text>
                     </TouchableOpacity>
                 </View>
-                <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" style={[formStyle.button, formStyle.buttonLogar]} onPress={() => alert('Pressed!')}>
+                <TouchableHighlight activeOpacity={0.6} underlayColor="#DDDDDD" style={[formStyle.button, formStyle.buttonLogar]} onPress={() => navigation.navigate("AreaAcessada")}>
                     <Text>Logar</Text>
                 </TouchableHighlight>
                 <TouchableHighlight activeOpacity={0.6} underlayColor="#bf3528" style={[formStyle.button, formStyle.buttonCadastrar]} onPress={() => navigation.navigate('Cadastro')}>

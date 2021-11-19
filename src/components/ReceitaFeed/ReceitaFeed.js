@@ -4,14 +4,17 @@ import { Layout, Text } from '@ui-kitten/components';
 import Header from '@components/ReceitaFeed/header/header'
 import ImageRecipe from './imageRecipe/ImageRecipe';
 import RecipeInfo from './RecipeInfo/RecipeInfo';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/core';
 
 const ReceitaFeed = () => {
+  const navigation = useNavigation();
   return (
-    <Layout style={style.container}>
+    <TouchableOpacity onPress={() => navigation.navigate("ReceitaHome")} style={style.container}>
       <Header />
       <ImageRecipe />
       <RecipeInfo />
-    </Layout>
+    </TouchableOpacity>
   );
 }
 

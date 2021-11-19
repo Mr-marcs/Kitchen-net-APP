@@ -6,11 +6,10 @@ module.exports = function(api) {
       [
         'module-resolver',
         {
-          root: ['./src'],
+          root:['./src'],
           extensions: [
             '.ts',
             '.tsx',
-            '.jsx',
             '.js',
             '.json',
           ],
@@ -21,8 +20,8 @@ module.exports = function(api) {
             '@pages': './src/pages',
             '@src': './src',
           },
-        },
+        }
       ],
-    ],
+    ]
   };
 };

@@ -1,15 +1,19 @@
 import React from 'react';
 import { StyleSheet, TouchableHighlight, ScrollView, ImageBackground, Image } from 'react-native';
 import { Layout, Text } from '@ui-kitten/components';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/core';
+
 
 const RecipeList = (props) => {
+    const navigation = useNavigation();
     return (
-      <Layout style={style.container}>
+      <TouchableOpacity onPress={() => navigation.navigate("ListaReceita")} style={style.container}>
           <Image source={props.source} style={style.containerImage}/>
           <Layout style={style.areaTexto}>
               <Text style={style.titulo}>{props.name}</Text>
           </Layout>
-      </Layout>
+      </TouchableOpacity>
     );
 }
 
