@@ -1,22 +1,31 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Platform, StatusBar } from 'react-native';
+import { StyleSheet, TextInput, View, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-const Header = (props) => {
+const Header = () => {
     const navigation = useNavigation();
     return (
         <View style={style.header}>
-            <View style={style.item1}></View>
-            <View style={style.item2}>
-                <Text style={style.titulo}>{props.name}</Text>
-            </View>
-            <View style={style.item3}>
-                <TouchableOpacity onPress={() => navigation.navigate("Buscar")}>
-                    <Icon name="search" size={24} color="#fff"/>
+            <View style={style.item1}>
+                <TouchableOpacity onPress={() => navigation.goBack()} style={{width: 24}}>
+                    <Icon name="md-arrow-back" size={24} color="#fff"/>
                 </TouchableOpacity>
             </View>
+            <View style={style.item2}>
+                <SearchInput />
+            </View>
         </View>
+    );
+}
+
+const SearchInput = (props) => {
+    return(
+        <TextInput 
+            {...props}
+            style={style.search}
+            
+        />
     );
 }
 
@@ -37,14 +46,16 @@ const style = StyleSheet.create({
         paddingRight: 20,
     },
     item1: {
-        flexGrow: 1,
+        
     },
     item2: {
-        paddingLeft: 25,
+        flex: 1,
+        marginLeft: 20,
     },
-    item3: {
-        flexGrow: 1,
-        alignItems: 'flex-end',
+    search: {
+        backgroundColor: '#c7362a',
+        color: '#fff',
+        paddingLeft: 5,
     },
 });
 

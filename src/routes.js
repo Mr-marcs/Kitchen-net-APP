@@ -14,6 +14,7 @@ import ReceitaHome from '@pages/AreaAcessada/ReceitaHome/ReceitaHome';
 import ListaReceitas from '@pages/ListaReceitas/ListaReceitas';
 import Etapa from '@pages/AreaAcessada/Etapa/Etapa';
 import EtapaFinal from '@pages/AreaAcessada/EtapaFInal/EtapaFinal';
+import Buscar from '@pages/AreaAcessada/Buscar/Buscar';
 
 
 const Stack = createNativeStackNavigator();
@@ -51,6 +52,7 @@ const AreaAcessada = () => {
       <Stack.Screen name="ListaReceita" component={ListaReceitas}/>
       <Stack.Screen name="Etapa" component={Etapa}/>
       <Stack.Screen name="EtapaFinal" component={EtapaFinal}/>
+      <Stack.Screen name="Buscar" component={Buscar}/>
     </Stack.Navigator>
   );
 }
