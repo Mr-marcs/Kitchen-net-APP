@@ -5,10 +5,13 @@ import Header from '@components/Etapa/Header/Header';
 import Dica from '@components/Etapa/Dica/Dica';
 import Timer from '@components/Etapa/Timer/Timer';
 import { Divider } from 'react-native-elements';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/core';
 
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
 
 const Etapa = () => {
+  const navigation = useNavigation();
   return (
     <View style={style.container}>
       <ScrollView >
@@ -22,9 +25,9 @@ const Etapa = () => {
         <Divider orientation="horizontal" />
       </ScrollView>
       <Layout style={{padding: 20, justifyContent: 'center', alignItems: 'center', elevation: 10}}>
-        <View style={{backgroundColor: '#E24333', padding: 15, width: 300, borderRadius: 30,}}>
+        <TouchableOpacity onPress={() => navigation.navigate("EtapaFinal")} style={{backgroundColor: '#E24333', padding: 15, width: 300, borderRadius: 30,}}>
           <Text style={{color: '#fff', textAlign: 'center'}}>Avançar</Text>
-        </View>
+        </TouchableOpacity>
       </Layout>
     </View>
   );

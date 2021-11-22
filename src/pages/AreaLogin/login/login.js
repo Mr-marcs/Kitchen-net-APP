@@ -1,20 +1,26 @@
-import React from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import formStyle from '@styles/form';
 import Screen from '@components/screen/screen';
 
 const Login = ({ navigation }) => {
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
     return (
         <Screen>
-            <View style={style.form}>
+            <KeyboardAvoidingView style={style.form}>
                 <Image 
                     style={formStyle.logo}
                     source={require('@assets/imgs/logo.png')}
                 />
                 <Text style={formStyle.titulo}>Login</Text>
                 <View style={formStyle.form}>
-                    <TextInput placeholder="Email..." style={formStyle.input}></TextInput>
-                    <TextInput placeholder="Senha..." style={formStyle.input}></TextInput>
+                    <TextInput 
+                        placeholder="Email..." 
+                        style={formStyle.input}>
+                    </TextInput>
+                    <TextInput placeholder="Senha..." style={formStyle.input} secureTextEntry></TextInput>
                 </View>
                 <View style={formStyle.formExtra}>
                     <TouchableOpacity onPress={() => {alert('Pressed!')}}>
@@ -27,7 +33,7 @@ const Login = ({ navigation }) => {
                 <TouchableHighlight activeOpacity={0.6} underlayColor="#bf3528" style={[formStyle.button, formStyle.buttonCadastrar]} onPress={() => navigation.navigate('Cadastro')}>
                     <Text style={formStyle.buttonCadastrarText}>Cadastrar</Text>
                 </TouchableHighlight>
-            </View>
+            </KeyboardAvoidingView>
         </Screen>
     );
 }

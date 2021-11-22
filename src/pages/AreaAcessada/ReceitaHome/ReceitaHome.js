@@ -4,8 +4,8 @@ import { Layout, Tab, TabView, Text } from '@ui-kitten/components';
 import Header from '@components/ReceitaHome/Header/Header';
 import ReceitaMenu from '@components/ReceitaHome/ReceitaMenu/ReceitaMenu';
 import Descricao from '@components/ReceitaHome/Descricao/Descricao';
-import Comentarios from '@components/ReceitaHome/Comentarios/Comentarios';
 import { useNavigation } from '@react-navigation/core';
+import Comentarios from '@components/ReceitaHome/Comentarios/Comentarios';
 
 const ReceitaHome = () => {
     const navigation = useNavigation();

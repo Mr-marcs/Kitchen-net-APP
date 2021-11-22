@@ -12,7 +12,7 @@ const Comentarios = () => {
             <Layout style={style.containerComentario}>
                 <Avatar source={pfp} size="large"/>
                 <Input
-                    placeholder='Place your Text'
+                    placeholder='Adicionar comentário...'
                     value={comentario}
                     onChangeText={nextValue => setComentario(nextValue)}
                     style={{flex: 1, marginLeft: 10,}}
