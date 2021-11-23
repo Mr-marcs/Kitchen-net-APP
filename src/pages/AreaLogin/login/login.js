@@ -2,10 +2,12 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import formStyle from '@styles/form';
 import Screen from '@components/screen/screen';
+import { useNavigation } from '@react-navigation/core';
 
-const Login = ({ navigation }) => {
+const Login = () => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const navigation = useNavigation();
 
     return (
         <Screen>
@@ -23,7 +25,7 @@ const Login = ({ navigation }) => {
                     <TextInput placeholder="Senha..." style={formStyle.input} secureTextEntry></TextInput>
                 </View>
                 <View style={formStyle.formExtra}>
-                    <TouchableOpacity onPress={() => {alert('Pressed!')}}>
+                    <TouchableOpacity onPress={() => {navigation.navigate("EsqueceuSenha")}}>
                         <Text style={formStyle.formExtraText}>Esqueci a senha</Text>
                     </TouchableOpacity>
                 </View>
