@@ -17,7 +17,7 @@ const Header = (props) => {
   return (
     <Layout style={style.container}>
         <Layout style={style.linha1}>
-            <Avatar size="medium" source={require(source)}/>
+            <Avatar size="medium" source={source}/>
             <Layout style={style.areaTexto}>
                 <Layout style={style.linha1}>
                     <Text>{props.Autor}</Text>

@@ -1,14 +1,14 @@
 import React,{useState} from 'react';
-import { StyleSheet, Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity, KeyboardAvoidingView, ToastAndroid} from 'react-native';
 import formStyle from '@styles/form';
 import Screen from '@components/screen/screen';
 import axios from 'axios';
-import AppLoading from 'expo-app-loading';
+import LoadingScreen from '@components/Loading/Screen/LoadingScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {base_url} from '@src/config/base_url.config';
 import { useNavigation } from '@react-navigation/core';
 
-const Login = ({ navigation }) => {
+const Login = () => {
     
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
@@ -16,8 +16,14 @@ const Login = ({ navigation }) => {
     const navigation = useNavigation();
     
     async function Login(){
+        const showToast = () => {
+            ToastAndroid.show("Erro em conectar com o sistema", ToastAndroid.LONG);
+        };
+        const showToast2 = () => {
+            ToastAndroid.show("Insira as credenciais corretas!", ToastAndroid.LONG);
+        };
         setLoad(true);
-        console.log("oi");
+        
         try{
             const response = await axios.post(base_url + '/validate',{
                 login: username,
@@ -30,10 +36,12 @@ const Login = ({ navigation }) => {
             }
             
             else {
+                showToast2();
                 setLoad(false);
             };
         }
         catch(err) {
+            showToast();
             setLoad(false)
             console.log(err);
         }
@@ -50,7 +58,7 @@ const Login = ({ navigation }) => {
                 <Text style={formStyle.titulo}>Login</Text>
                 <View style={formStyle.form}>
                     <TextInput placeholder="Email..." style={formStyle.input} onChangeText={(text)=>{setUsername(text)}} value={username}></TextInput>
-                    <TextInput placeholder="Senha..." style={formStyle.input} onChangeText={(text)=>{setPassword(text)}} value={password}></TextInput>
+                    <TextInput placeholder="Senha..." style={formStyle.input} onChangeText={(text)=>{setPassword(text)}} value={password} secureTextEntry></TextInput>
                 </View>
                 <View style={formStyle.formExtra}>
                     <TouchableOpacity onPress={() => {navigation.navigate("EsqueceuSenha")}}>
@@ -67,7 +75,7 @@ const Login = ({ navigation }) => {
         </Screen>
         )
         :
-        <AppLoading/>
+        <LoadingScreen/>
         }
         </>
         
