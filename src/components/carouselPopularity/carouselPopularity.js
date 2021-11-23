@@ -3,7 +3,7 @@ import { StyleSheet, View, Animated, TouchableHighlight } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { Layout, Tab, TabView, Text } from '@ui-kitten/components';
 import CarouselPages from "@components/CarouselPages/CarouselPages";
-
+import axios from 'axios'
 const items = ["Mais curtidas", "Mais recentes", "Em alta"];
 
 const CarouselPopularity = () => {
@@ -15,13 +15,13 @@ const CarouselPopularity = () => {
             selectedIndex={selectedIndex}
             onSelect={index => setSelectedIndex(index)}>
                 <Tab title="Mais curtidas" >
-                    <CarouselPages />
+                    <CarouselPages Index={0}/>
                 </Tab>
                 <Tab title="Mais recentes">
-                    <CarouselPages />
+                    <CarouselPages Index={1} />
                 </Tab>
                 <Tab title="Em alta">
-                    <CarouselPages />
+                    <CarouselPages Index={2}/>
                 </Tab>
             </TabView>
         </Layout>
