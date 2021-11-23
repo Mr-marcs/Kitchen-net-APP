@@ -11,6 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { set } from 'react-native-reanimated';
 import Categoria from '@components/AdicionarReceita/Categorias/Categoria/Categoria';
 import {base_url} from '@src/config/base_url.config';
+import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,30 +45,30 @@ const Home = () => {
     },[])
 
     return (
-      <ScrollView  style={style.container}>
-        <Header name="Home"/>
-        <Screen>
-            <Layout style={style.content}>
-                <Text style={style.titulo}>Olá, {username}</Text>
-                <Text style={style.subTitulo}>O que gostaria de cozinhar hoje?</Text>
-                {
-                   (category==undefined)?
-                   //AQUI È O LOADING
-                   <Text>Oi</Text>
-                   //AQUi É O LOADING
-                   :
-                   //DINAMICO
-                   category.map(item=>{
-                       return(
-                           <RecomendacoesCategoria name={item.CategoryName} key={item.Id}/>
-                       )
-                   })
-                   //DINAMICO
-                }        
-                <CarouselPopularity />
-            </Layout>
-        </Screen>
-      </ScrollView>
+        <ScrollView  style={style.container}>
+            <Header name="Home"/>
+            <Screen>
+                <Layout style={style.content}>
+                    <Text style={style.titulo}>Olá, {username}</Text>
+                    <Text style={style.subTitulo}>O que gostaria de cozinhar hoje?</Text>
+                    {
+                        (category==undefined)?
+                        //AQUI È O LOADING
+                        <LoadingComponent/>
+                        //AQUi É O LOADING
+                        :
+                        //DINAMICO
+                        category.map(item=>{
+                            return(
+                                <RecomendacoesCategoria name={item.CategoryName} key={item.Id}/>
+                            )
+                        })
+                        //DINAMICO
+                    }        
+                    <CarouselPopularity />
+                </Layout>
+            </Screen>
+        </ScrollView>
     );
 }
 

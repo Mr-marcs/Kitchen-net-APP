@@ -26,7 +26,13 @@ const EsqueceuSenha = () => {
                             style={formStyle.input}>
                         </TextInput>
                     </View>
-                    <TouchableHighlight activeOpacity={0.6} underlayColor="#bf3528" style={[formStyle.button, formStyle.buttonCadastrar]} onPress={() => navigation.navigate('EsqueceuSenhaConfirmacao')}>
+                    <TouchableHighlight 
+                        activeOpacity={0.6} 
+                        underlayColor="#bf3528" 
+                        style={[formStyle.button, formStyle.buttonCadastrar]} 
+                        onPress={() => navigation.navigate('Confirmacao', {
+                            mensagem: "Foi enviado para seu email de Reset de senha!",
+                        })}>
                         <Text style={formStyle.buttonCadastrarText}>Enviar</Text>
                     </TouchableHighlight>
                 </KeyboardAvoidingView>

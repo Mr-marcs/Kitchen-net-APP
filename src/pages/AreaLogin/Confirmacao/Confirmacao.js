@@ -6,7 +6,8 @@ import { useNavigation } from '@react-navigation/core';
 
 const width = Dimensions.get("window").width;
 
-const EsqueceuSenhaConfirmacao = () => {
+const Confirmacao = ({route}) => {
+    const {mensagem} = route.params;
     const navigation = useNavigation();
     return (
         <Screen>
@@ -16,7 +17,7 @@ const EsqueceuSenhaConfirmacao = () => {
                     source={require('@assets/imgs/logo.png')}
                 />
                 <View style={{marginTop: 20, width: width-45, alignItems: 'center', padding:20, elevation:1}}>
-                    <Text>Foi enviado para seu email de Reset de senha!</Text>
+                    <Text>{mensagem}</Text>
                     <TouchableHighlight activeOpacity={0.6} underlayColor="#bf3528" style={[formStyle.button, formStyle.buttonCadastrar]} onPress={() => navigation.navigate('Login')}>
                         <Text style={formStyle.buttonCadastrarText}>Voltar</Text>
                     </TouchableHighlight>
@@ -34,4 +35,4 @@ const style = StyleSheet.create({
     },
 });
 
-export default EsqueceuSenhaConfirmacao;
+export default Confirmacao;

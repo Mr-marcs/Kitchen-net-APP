@@ -4,8 +4,10 @@ import formStyle from '@styles/form';
 import Screen from '@components/screen/screen';
 import Global from '@styles/global';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/core';
 
-const Cadastro = ({navigation}) => {
+const Cadastro = () => {
+    const navigation = useNavigation();
     return (
         <Screen>
             <View style={Global.backButtonView}>
@@ -24,7 +26,13 @@ const Cadastro = ({navigation}) => {
                     <TextInput placeholder="Email..." style={formStyle.input}></TextInput>
                     <TextInput placeholder="Senha..." style={formStyle.input}></TextInput>
                 </View>
-                <TouchableHighlight activeOpacity={0.6} underlayColor="#bf3528" style={[formStyle.button, formStyle.buttonCadastrar]} onPress={() => alert('Pressed!')}>
+                <TouchableHighlight 
+                    activeOpacity={0.6} 
+                    underlayColor="#bf3528" 
+                    style={[formStyle.button, formStyle.buttonCadastrar]} 
+                    onPress={() => navigation.navigate("Confirmacao", {
+                        mensagem: "Cadastrado com sucesso!",
+                    })}>
                     <Text style={formStyle.buttonCadastrarText}>Cadastrar</Text>
                 </TouchableHighlight>
             </View>

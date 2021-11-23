@@ -3,13 +3,14 @@ import { StyleSheet, ScrollView } from 'react-native';
 import { Toggle, Layout, Text } from '@ui-kitten/components';
 import HeaderSemBuscar from '@components/HeaderSemBucar/HeaderSemBuscar';
 import { TouchableHighlight } from 'react-native-gesture-handler';
+import { ThemeContext } from '../../../../theme-context';
 
 const Configuracoes = ({navigation}) => {
     const [darkMode, setDarkMode] = useState(false);
     const onActiveCheckedChange = (isChecked) => {
         setDarkMode(isChecked);
     };
-
+    const themeContext = React.useContext(ThemeContext);
     return (
         <ScrollView style={style.container}>
             <HeaderSemBuscar name="Configurações"/>
@@ -17,7 +18,7 @@ const Configuracoes = ({navigation}) => {
                     <Text>Modo Noturno</Text>
                     <Toggle
                         checked={darkMode}
-                        onChange={onActiveCheckedChange}>
+                        onChange={onActiveCheckedChange, themeContext.ToggleTheme}>
                     </Toggle>
                 </Layout>
                 <TouchableHighlight underlayColor="#ddd" onPress={() => navigation.navigate("EditarPerfil")} style={style.config}>

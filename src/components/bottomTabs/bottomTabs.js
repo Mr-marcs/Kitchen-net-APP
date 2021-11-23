@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Home from '@pages/AreaAcessada/home/home';
 import Feed from '@pages/AreaAcessada/feed/feed';
@@ -9,10 +9,13 @@ import Panela from '@assets/svg/panela.svg';
 import Perfil from '@pages/AreaAcessada/Perfil/Perfil';
 import AdicionarReceita from '@pages/AreaAcessada/AdicionarReceita/AdicionarReceita';
 import { View } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 const Tab = createBottomTabNavigator();
 
-const BottomTabs = ({ navigation }) => {
+const BottomTabs = () => {
+    const navigation = useNavigation();
+
     return (
         <Tab.Navigator 
             initialRouteName="Home" 
@@ -43,11 +46,11 @@ const BottomTabs = ({ navigation }) => {
                 name="Feed" 
                 component={Feed}
                 options={{
-                  tabBarIcon: ({color}) => {
-                    return(
-                        <Ionicons name="newspaper-outline" color={color} size={24}/>
-                    );
-                  },
+                    tabBarIcon: ({color}) => {
+                        return(
+                            <Ionicons name="newspaper-outline" color={color} size={24}/>
+                        );
+                    },
                 }}
             />
             <Tab.Screen 

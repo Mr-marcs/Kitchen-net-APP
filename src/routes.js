@@ -17,17 +17,17 @@ import EtapaFinal from '@pages/AreaAcessada/EtapaFInal/EtapaFinal';
 import Buscar from '@pages/AreaAcessada/Buscar/Buscar';
 import Categorias from '@pages/AreaAcessada/Categorias/Categorias';
 import EsqueceuSenha from '@pages/AreaLogin/EsqueceuSenha/EsqueceuSenha';
-import EsqueceuSenhaConfirmacao from '@pages/AreaLogin/EsqueceuSenha/EsqueceuSenhaConfirmacao/EsqueceuSenhaConfirmacao';
+import Confirmacao from '@pages/AreaLogin/Confirmacao/Confirmacao';
 
 const Stack = createNativeStackNavigator();
 
 const Routes = () => {
     return (
         <NavigationContainer>
-        <Stack.Navigator initialRouteName="AreaLogin" screenOptions={{headerShown: false}}>
-            <Stack.Screen name="AreaLogin" component={AreaLogin}/>
-            <Stack.Screen name="AreaAcessada" component={AreaAcessada}/>
-        </Stack.Navigator>
+          <Stack.Navigator initialRouteName="AreaLogin" screenOptions={{headerShown: false}}>
+              <Stack.Screen name="AreaLogin" component={AreaLogin}/>
+              <Stack.Screen name="AreaAcessada" component={AreaAcessada}/>
+          </Stack.Navigator>
         </NavigationContainer>
     );
 }
@@ -38,7 +38,7 @@ const AreaLogin = () => {
       <Stack.Screen name="Login" component={Login}/>
       <Stack.Screen name="Cadastro" component={Cadastro}/>
       <Stack.Screen name="EsqueceuSenha" component={EsqueceuSenha}/>
-      <Stack.Screen name="EsqueceuSenhaConfirmacao" component={EsqueceuSenhaConfirmacao}/>
+      <Stack.Screen name="Confirmacao" component={Confirmacao}/>
     </Stack.Navigator>
   );
 }
