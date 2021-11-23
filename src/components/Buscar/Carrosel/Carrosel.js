@@ -28,11 +28,6 @@ const Tabs = () => {
         { key: 'third', title: 'Pessoas' },
         { key: 'forth', title: 'Listas de Receitas' },
     ]);
-    
-
-    const SecondRoute = () => (
-        <Text>LOL2</Text>
-    );
 
     const renderScene = SceneMap({
         first: ReceitasOFiciais,

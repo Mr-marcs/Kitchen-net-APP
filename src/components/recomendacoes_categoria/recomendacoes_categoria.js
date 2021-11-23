@@ -1,17 +1,20 @@
 import React from 'react';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-
-const Stack = createNativeStackNavigator();
+import { StyleSheet, Text, View, ImageBackground, TouchableWithoutFeedback } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
 
 const RecomendacoesCategoria = (props) => {
+    const navigation = useNavigation();
     return (
-        <ImageBackground source={imagencategoria} style={style.container} imageStyle={style.imagemfundo}>
-            <View style={style.effects}>
-                <Text style={style.titulo}>{props.name}</Text>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Categorias', {name: props.name})}>
+            <View>
+                <ImageBackground source={imagencategoria} style={style.container} imageStyle={style.imagemfundo}>
+                    <View style={style.effects}>
+                        <Text style={style.titulo}>{props.name}</Text>
+                    </View>
+                </ImageBackground>
             </View>
-        </ImageBackground>
+        </TouchableWithoutFeedback>
     );
 }
 
