@@ -1,20 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Image, TouchableHighlight } from 'react-native';
 import { Layout, Text, Avatar } from '@ui-kitten/components';
 import pfp from '@assets/imgs/pfp.jpg';
 import Icon from 'react-native-vector-icons/Entypo';
+import base_url from '@src/config/base_url.config';
+import axios from 'axios';
 
-const Header = () => {
+const Header = (props) => {
+  
+  const [url,setUrl] = useState();
+  
+  const source = {
+    uri: url
+  }
+
   return (
     <Layout style={style.container}>
         <Layout style={style.linha1}>
-            <Avatar size="medium" source={pfp}/>
+            <Avatar size="medium" source={require(source)}/>
             <Layout style={style.areaTexto}>
                 <Layout style={style.linha1}>
-                    <Text>Pedro Andrade</Text>
+                    <Text>{props.Autor}</Text>
                     <Text style={style.seguir}> - Seguir</Text>
                 </Layout>
-                <Text style={style.data}>2 Semanas atrás</Text>
+                <Text style={style.data}>{props.Data}</Text>
             </Layout>
         </Layout>
         <Icon name="dots-three-vertical" size={24} color="#000"/>

@@ -6,7 +6,7 @@ const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-conte
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-const Receita = () => {
+const Receita = (props) => {
     const navigation = useNavigation();
     return (
       <TouchableOpacity style={style.container} onPress={() => navigation.navigate("ReceitaHome")}>
@@ -16,17 +16,17 @@ const Receita = () => {
                 <View style={style.areaTexto}>
                     <View>
                         <View style={style.linha1}>
-                            <Text style={style.nome}>Frango Assado loukoaaaaaa</Text>
+                            <Text style={style.nome}>{props.Nome}</Text>
                         </View>
                         <View style={style.linha2}>
-                            <Text style={style.autorReceita}>By: Juliana Cardenia</Text>
+                            <Text style={style.autorReceita}>By: {props.Autor}</Text>
                         </View>
                     </View>
                     <View style={style.infoReceita}>
-                        <Text style={style.autorReceita}>14/02/2020</Text>
+                        <Text style={style.autorReceita}>{props.Data}</Text>
                         <View style={style.curitdas}>
                             <Icon2 name="hearto" size={14} color="#F24333" />
-                            <Text style={style.autorReceita}> 10.000 chefs</Text>
+                            <Text style={style.autorReceita}> {props.like} chefs</Text>
                         </View>
                     </View>
                 </View>
