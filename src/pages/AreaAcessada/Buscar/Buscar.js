@@ -1,36 +1,52 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, ScrollView, StatusBar, TouchableOpacity, TextInput } from 'react-native';
-import { TabView, Tab, Text } from '@ui-kitten/components';
+import { Text, Avatar } from '@ui-kitten/components';
 import { useNavigation } from '@react-navigation/core';
-import Header from '@components/Buscar/Header/Header';
-import Categorias from '@components/Buscar/Categorias/Categorias';
 import Icon from 'react-native-vector-icons/Ionicons';
+import Icon2 from 'react-native-vector-icons/Feather';
+import Categorias from '@components/Buscar/Categorias/Categorias';
+import Tabs from '@components/Buscar/Carrosel/Carrosel';
 
 const Buscar = () => {
     const navigation = useNavigation();
     const [pesquisa, setPesquisa] = useState('');
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const [isPesquisando, setIsPesquisando] = useState(false);
     
-    const Tabs = () => {
-        return (
-            <TabView
-                selectedIndex={selectedIndex}
-                onSelect={index => setSelectedIndex(index)}
-            >
-                <Tab title="Receitas Oficiais" style={{paddingLeft: 5, paddingRight: 10}}>
-                    <Text>Lol</Text>
-                </Tab>
-                <Tab title="Receitas da Comunidade">
-                    <Text>Lol</Text>
-                </Tab>
-                <Tab title="Pessoas">
-                    <Text>Lol</Text>
-                </Tab>
-                <Tab title="Listas de Receitas">
-                    <Text>Lol</Text>
-                </Tab>
-            </TabView>
-        );
+    const Pesquisando = () => {
+        setIsPesquisando(true)}
+    ;
+
+    const Clear = () => {
+        setPesquisa('');
+        setIsPesquisando(false);
+    }
+
+    const ClearButton = () => {
+        if(isPesquisando){
+            return(
+                <TouchableOpacity onPress={() => Clear()} style={{width: 24}}>
+                    <Icon2 name="x" size={24} color="#fff"/>
+                </TouchableOpacity>
+            );
+        }
+        else{
+            return(null);
+        }
+    }
+
+    const EventArea = () => {
+        if(!isPesquisando){
+            return(
+                <ScrollView>
+                    <Categorias />
+                </ScrollView>
+            );
+        }
+        else{
+            return (
+                <Tabs />
+            );
+        }
     }
 
     return (
@@ -42,15 +58,20 @@ const Buscar = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={style.item2}>
-                    <TextInput style={style.search} value={pesquisa} onChangeText={(nextValue) => {
-                        setPesquisa(nextValue);
-                    }}/>
+                    <TextInput 
+                        style={style.search} 
+                        value={pesquisa} 
+                        onChangeText={(nextValue) => {
+                            setPesquisa(nextValue);
+                        }} 
+                        onSubmitEditing={() => Pesquisando()}
+                    />
+                </View>
+                <View style={style.item1}>
+                    <ClearButton />
                 </View>
             </View>
-            <Tabs />
-            <ScrollView>
-                <Categorias />
-            </ScrollView>
+            <EventArea />
         </View>
     );
 }
@@ -78,6 +99,7 @@ const style = StyleSheet.create({
     item2: {
         flex: 1,
         marginLeft: 20,
+        marginRight: 10,
     },
     search: {
         backgroundColor: '#c7362a',

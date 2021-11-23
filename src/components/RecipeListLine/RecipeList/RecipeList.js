@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, TouchableHighlight, ScrollView, ImageBackground, Image } from 'react-native';
+import { StyleSheet, TouchableHighlight, Dimensions, ImageBackground, Image } from 'react-native';
 import { Layout, Text } from '@ui-kitten/components';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/core';
@@ -17,19 +17,21 @@ const RecipeList = (props) => {
     );
 }
 
+const width = Dimensions.get("window").width;
+
 const style = StyleSheet.create({
     container: {
         marginTop: 20,
     },
     containerImage:{
-        width: 160,
+        width: width/2-25,
         height: 180,
     },
     areaTexto: {
-        width: 160,
+        width: width/2-25,
         height: 70,
         backgroundColor: '#676767',
-        padding: 10,
+        justifyContent: 'center',
     },
     titulo: {
         color: '#fff',

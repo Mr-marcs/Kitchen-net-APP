@@ -18,7 +18,7 @@ const LoadingComponent = () => {
 const style = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 20,
+        marginTop: 40,
         marginBottom: 20,
         backgroundColor: '#fff',
         alignItems: 'center',

@@ -10,14 +10,13 @@ import lul from '@assets/imgs/lul.png';
 
 const RecipeListLine = () => {
     return (
-      <Layout style={style.container}>
-          <RecipeList source={Mais} name="Criar Lista de receitas"/>
-          <RecipeList source={Amei} name="Curtidas"/>
-          <RecipeList source={Minhas} name="Bookmark"/>
-          <RecipeList source={Salvos} name="Minhas receitas"/>
-          <RecipeList source={lul} name="Seleção exclusiva dos integrantes do TCC "/>
-          
-      </Layout>
+        <Layout style={style.container}>
+            <RecipeList source={Mais} name="Criar Lista de receitas"/>
+            <RecipeList source={Amei} name="Curtidas"/>
+            <RecipeList source={Minhas} name="Bookmark"/>
+            <RecipeList source={Salvos} name="Minhas receitas"/>
+            <RecipeList source={lul} name="Seleção exclusiva dos integrantes do TCC "/>
+        </Layout>
     );
 }
 
@@ -25,7 +24,7 @@ const style = StyleSheet.create({
     container:{
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         flexWrap: 'wrap',
     },
 });

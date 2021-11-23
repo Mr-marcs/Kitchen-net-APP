@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableHighlight } from 'react-native';
 import { Layout, Text, Divider } from '@ui-kitten/components';
-import Icon from 'react-native-vector-icons/Entypo';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import Icon3 from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -25,7 +24,6 @@ const RecipeInfo = () => {
                     <Text style={style.textInfo}>13</Text>
                 </Layout>
             </Layout>
-            <Icon name="share" color="#000" size={24}/>
         </Layout>
         <Divider />
     </Layout>
