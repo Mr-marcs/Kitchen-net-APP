@@ -6,12 +6,15 @@ import axios from 'axios';
 import AppLoading from 'expo-app-loading';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {base_url} from '@src/config/base_url.config';
+import { useNavigation } from '@react-navigation/core';
 
 const Login = ({ navigation }) => {
     
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
     const [load,setLoad] = useState(false);
+    const navigation = useNavigation();
+    
     async function Login(){
         setLoad(true);
         console.log("oi");
@@ -35,12 +38,11 @@ const Login = ({ navigation }) => {
             console.log(err);
         }
     }
-
     return (
         <>
         {(!load)?(
         <Screen>
-            <View style={style.form}>
+            <KeyboardAvoidingView style={style.form}>
                 <Image 
                     style={formStyle.logo}
                     source={require('@assets/imgs/logo.png')}
@@ -51,7 +53,7 @@ const Login = ({ navigation }) => {
                     <TextInput placeholder="Senha..." style={formStyle.input} onChangeText={(text)=>{setPassword(text)}} value={password}></TextInput>
                 </View>
                 <View style={formStyle.formExtra}>
-                    <TouchableOpacity onPress={() => {alert('Pressed!')}}>
+                    <TouchableOpacity onPress={() => {navigation.navigate("EsqueceuSenha")}}>
                         <Text style={formStyle.formExtraText}>Esqueci a senha</Text>
                     </TouchableOpacity>
                 </View>
@@ -61,7 +63,7 @@ const Login = ({ navigation }) => {
                 <TouchableHighlight activeOpacity={0.6} underlayColor="#bf3528" style={[formStyle.button, formStyle.buttonCadastrar]} onPress={() => navigation.navigate('Cadastro')}>
                     <Text style={formStyle.buttonCadastrarText}>Cadastrar</Text>
                 </TouchableHighlight>
-            </View>
+            </KeyboardAvoidingView>
         </Screen>
         )
         :

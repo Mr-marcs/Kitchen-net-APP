@@ -1,8 +1,10 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Platform, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Header = (props) => {
+    const navigation = useNavigation();
     return (
         <View style={style.header}>
             <View style={style.item1}></View>
@@ -10,7 +12,9 @@ const Header = (props) => {
                 <Text style={style.titulo}>{props.name}</Text>
             </View>
             <View style={style.item3}>
-                <Icon name="search" size={24} color="#fff"/>
+                <TouchableOpacity onPress={() => navigation.navigate("Buscar")}>
+                    <Icon name="search" size={24} color="#fff"/>
+                </TouchableOpacity>
             </View>
         </View>
     );
