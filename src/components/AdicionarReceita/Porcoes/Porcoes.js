@@ -20,11 +20,11 @@ const Porcoes = () => {
             <Text>Porções:</Text>
             <Layout style={style.containerPortions}>
                 <TouchableOpacity style={style.minus} onPress={Diminuir}>
-                    <Icon name="minus-circle" color="#000" size={24}/>
+                    <Icon name="minus-circle" color="#F24333" size={24}/>
                 </TouchableOpacity>
                 <Text style={style.total}>{portions}</Text>
                 <TouchableOpacity style={style.minus} onPress={Aumentar}>
-                    <Icon name="plus-circle" color="#000" size={24}/>
+                    <Icon name="plus-circle" color="#F24333" size={24}/>
                 </TouchableOpacity>
             </Layout>
         </Layout>

@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Text, View, ImageBackground } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet, Text, View, ImageBackground, TouchableWithoutFeedback } from 'react-native';
 import images from '@assets/categorias/1.jpg'
-const Stack = createNativeStackNavigator();
+import { useNavigation } from '@react-navigation/core';
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
 
 const RecomendacoesCategoria = (props) => {
-    
     const [categoryImage,setCategoryImage] = useState();
+    const navigation = useNavigation();
 
     switch (props.Id) {
             case 1:
-               setCategoryImage(require('@assets/categorias/1.jpg'))
-               break;
+                setCategoryImage(require('@assets/categorias/1.jpg'))
+                break;
             case 2:
                 setCategoryImage(require('@assets/categorias/2.jpg'))
                 break;
@@ -29,11 +28,15 @@ const RecomendacoesCategoria = (props) => {
     }
     console.log(categoryImage)
     return (
-        <ImageBackground source={categoryImage} style={style.container} imageStyle={style.imagemfundo}>
-            <View style={style.effects}>
-                <Text style={style.titulo}>{props.name}</Text>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Categorias', {name: props.name})}>
+            <View>
+                <ImageBackground source={imagencategoria} style={style.container} imageStyle={style.imagemfundo}>
+                    <View style={style.effects}>
+                        <Text style={style.titulo}>{props.name}</Text>
+                    </View>
+                </ImageBackground>
             </View>
-        </ImageBackground>
+        </TouchableWithoutFeedback>
     );
 }
 

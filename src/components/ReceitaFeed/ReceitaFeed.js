@@ -45,7 +45,7 @@ const ReceitaFeed = (props) => {
 
 const style = StyleSheet.create({
   container:{
-    
+    flex: 1,
   },
 });
 

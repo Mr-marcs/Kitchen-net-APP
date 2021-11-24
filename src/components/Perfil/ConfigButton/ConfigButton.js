@@ -1,23 +1,25 @@
 import { useNavigation } from '@react-navigation/core';
-import { Layout, Divider, Text } from '@ui-kitten/components';
+import { Layout, Divider, Text, useTheme } from '@ui-kitten/components';
 import React from 'react';
 import { StyleSheet, View, TouchableHighlight } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 const ConfigButton = () => {
+    const theme = useTheme();
+
     const navigation = useNavigation();
     return (
-      <Layout style={style.container}>
+        <Layout style={style.container}>
             <Divider />
-            <TouchableHighlight underlayColor="#ddd" onPress={() => navigation.navigate("Configuracoes")} style={style.button}>
+            <TouchableHighlight underlayColor="rgba(0, 0, 0, 0.5)" onPress={() => navigation.navigate("Configuracoes")} style={style.button}>
                 <View style={style.config}>
-                    <Icon name="gear" size={30} color="#000"/>
+                    <Icon name="gear" size={30} color={theme['color-primary-500']}/>
                     <Text style={style.text}>Configurações</Text>
                 </View>
             </TouchableHighlight>
             <Divider />
-      </Layout>
+        </Layout>
     );
 }
 

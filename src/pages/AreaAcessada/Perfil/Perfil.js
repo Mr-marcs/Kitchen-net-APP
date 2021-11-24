@@ -12,9 +12,8 @@ import { base_url } from '@src/config/base_url.config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Perfil = (props) => {
-  
   const [user,setUser] = useState();
- 
+
   async function GetUserInfo(){
 
     const token = await AsyncStorage.getItem('token');
@@ -34,9 +33,10 @@ const Perfil = (props) => {
     GetUserInfo();
   },[])
 
-   return (
-      <ScrollView  style={style.container}>
-        <Header name="Perfil"/>
+  return (
+    <View style={style.container}>
+      <Header name="Perfil"/>
+      <ScrollView>
         {(!user)? <Text>Carregando...</Text>
         :
         <Screen>
@@ -48,8 +48,8 @@ const Perfil = (props) => {
         </Screen>
         }
       </ScrollView>
-      
-    );
+    </View>
+  );
 }
 
 const style = StyleSheet.create({

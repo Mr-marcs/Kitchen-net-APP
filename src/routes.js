@@ -13,17 +13,21 @@ import AdicionarEtapa from '@pages/AreaAcessada/AdicionarEtapa/AdicionarEtapa';
 import ReceitaHome from '@pages/AreaAcessada/ReceitaHome/ReceitaHome';
 import ListaReceitas from '@pages/ListaReceitas/ListaReceitas';
 import Etapa from '@pages/AreaAcessada/Etapa/Etapa';
-
+import EtapaFinal from '@pages/AreaAcessada/EtapaFInal/EtapaFinal';
+import Buscar from '@pages/AreaAcessada/Buscar/Buscar';
+import Categorias from '@pages/AreaAcessada/Categorias/Categorias';
+import EsqueceuSenha from '@pages/AreaLogin/EsqueceuSenha/EsqueceuSenha';
+import Confirmacao from '@pages/AreaLogin/Confirmacao/Confirmacao';
 
 const Stack = createNativeStackNavigator();
 
 const Routes = () => {
     return (
         <NavigationContainer>
-        <Stack.Navigator initialRouteName="AreaLogin" screenOptions={{headerShown: false}}>
-            <Stack.Screen name="AreaLogin" component={AreaLogin}/>
-            <Stack.Screen name="AreaAcessada" component={AreaAcessada}/>
-        </Stack.Navigator>
+          <Stack.Navigator initialRouteName="AreaLogin" screenOptions={{headerShown: false}}>
+              <Stack.Screen name="AreaLogin" component={AreaLogin}/>
+              <Stack.Screen name="AreaAcessada" component={AreaAcessada}/>
+          </Stack.Navigator>
         </NavigationContainer>
     );
 }
@@ -33,6 +37,8 @@ const AreaLogin = () => {
     <Stack.Navigator initialRouteName="Login" screenOptions={{headerShown: false}}>
       <Stack.Screen name="Login" component={Login}/>
       <Stack.Screen name="Cadastro" component={Cadastro}/>
+      <Stack.Screen name="EsqueceuSenha" component={EsqueceuSenha}/>
+      <Stack.Screen name="Confirmacao" component={Confirmacao}/>
     </Stack.Navigator>
   );
 }
@@ -49,6 +55,9 @@ const AreaAcessada = () => {
       <Stack.Screen name="ReceitaHome" component={ReceitaHome}/>
       <Stack.Screen name="ListaReceita" component={ListaReceitas}/>
       <Stack.Screen name="Etapa" component={Etapa}/>
+      <Stack.Screen name="EtapaFinal" component={EtapaFinal}/>
+      <Stack.Screen name="Buscar" component={Buscar}/>
+      <Stack.Screen name="Categorias" component={Categorias}/>
     </Stack.Navigator>
   );
 }

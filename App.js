@@ -1,32 +1,41 @@
 import 'react-native-gesture-handler';
 import React from 'react';
-import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   Oswald_400Regular,
 } from '@expo-google-fonts/oswald';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Routes from '@src/routes'
 import * as eva from '@eva-design/eva';
 import { ApplicationProvider } from '@ui-kitten/components';
-import { default as theme } from '@assets/custom-theme.json'; // <-- Import app theme
+import { default as themeCustom } from '@assets/custom-theme.json'; // <-- Import app theme
+import LoadingScreen from '@components/Loading/Screen/LoadingScreen';
+import { ThemeContext } from './theme-context';
+import { StatusBar } from 'react-native';
 
-const Stack = createNativeStackNavigator();
+export default () => {
+  const [theme, setTheme] = React.useState('light');
 
-const App = () => {
+  const ToggleTheme = () => {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(nextTheme);
+  };
+
   let [fontsLoaded] = useFonts({
     Oswald_400Regular,
   });
   if (!fontsLoaded) {
-    return <AppLoading />;
+    return <LoadingScreen />;
   }
   else{
     return (
-      <ApplicationProvider {...eva} theme={{...eva.light, ...theme}}>
-        <Routes />
-      </ApplicationProvider>
+      <>
+        <StatusBar/>
+        <ThemeContext.Provider value={{theme, ToggleTheme}}>
+          <ApplicationProvider {...eva} theme={{...eva[theme], ...themeCustom}}>
+            <Routes />
+          </ApplicationProvider>
+        </ThemeContext.Provider>
+      </>
     );
   }
 }
-
-export default App;

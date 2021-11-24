@@ -4,12 +4,12 @@ import { Layout, Text } from '@ui-kitten/components';
 
 const Ingrediente = () => {
     return (
-      <Layout style={style.container}>
-          <Text>Batata-frita</Text>
-          <Layout style={style.medida}>
-              <Text>300g</Text>
-          </Layout>
-      </Layout>
+        <Layout style={style.container}>
+            <Text>Batata-frita</Text>
+            <Layout style={style.medida}>
+                <Text>300g</Text>
+            </Layout>
+        </Layout>
     );
 }
 
@@ -23,7 +23,7 @@ const style = StyleSheet.create({
         alignItems: 'center',
     },
     medida: {
-        backgroundColor: '#ddd',
+        backgroundColor: '#F24333',
         padding: 5,
         borderRadius: 10,
     },

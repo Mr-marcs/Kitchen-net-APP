@@ -1,16 +1,22 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import { StyleSheet, Text, View, TouchableHighlight, Platform, StatusBar } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Platform, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 const Header = (props) => {
+    const navigation = useNavigation();
     return (
-        <View style={style.header}>
-            <View style={style.item1}></View>
-            <View style={style.item2}>
-                <Text style={style.titulo}>{props.name}</Text>
-            </View>
-            <View style={style.item3}>
-                <Icon name="search" size={24} color="#fff"/>
+        <View style={style.container}>
+            <View style={style.header}>
+                <View style={style.item1}></View>
+                <View style={style.item2}>
+                    <Text style={style.titulo}>{props.name}</Text>
+                </View>
+                <View style={style.item3}>
+                    <TouchableOpacity onPress={() => navigation.navigate("Buscar")}>
+                        <Icon name="search" size={24} color="#fff"/>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     );
@@ -24,10 +30,9 @@ const style = StyleSheet.create({
     },
     header: {
         width: '100%',
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight+15 : 15,
+        paddingTop: 25,
         paddingBottom: 10,
         backgroundColor: '#F24333',
-        display: 'flex',
         flexDirection: 'row',
         paddingLeft: 20,
         paddingRight: 20,

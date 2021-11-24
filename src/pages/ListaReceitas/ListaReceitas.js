@@ -10,32 +10,34 @@ import { ScrollView } from 'react-native-gesture-handler';
 const ListaReceitas = () => {
     const navigation = useNavigation();
     return (
-        <ScrollView>
-            <HeaderSemBuscar name="Lista de receitas"/>
-            <ImageBackground source={lul} style={{height: 220}} blurRadius={5}>
-                <View style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', height: 220}}></View>
-            </ImageBackground>
-            <View style={style.flex}>
-                <ImageBackground source={lul} style={style.mainImage}></ImageBackground>
-            </View>
-            <View style={{alignItems: 'center'}}>
-                <View style={style.tituloContainer}>
-                    <Text style={style.titulo}>Seleção exclusiva dos integrantes do TCC</Text>
+        <Layout>
+            <ScrollView>
+                <HeaderSemBuscar name="Lista de receitas"/>
+                <ImageBackground source={lul} style={{height: 220}} blurRadius={5}>
+                    <View style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', height: 220}}></View>
+                </ImageBackground>
+                <View style={style.flex}>
+                    <ImageBackground source={lul} style={style.mainImage}></ImageBackground>
                 </View>
-            </View>
-            <Text style={{textAlign: 'center', marginTop: 10,}}>Criado por: Marcos Paulo TCC</Text>
-            <View style={{flexDirection: 'row', justifyContent: 'space-between', padding: 20,}}>
-                <Text>5 Seguindo</Text>
-                <Text>Criado em: 03/03/2021</Text>
-            </View>
-            <View style={{padding: 20,}}>
-                <Receita />
-                <Receita />
-                <Receita />
-                <Receita />
-                <Receita />
-            </View>
-        </ScrollView>
+                <View style={{alignItems: 'center'}}>
+                    <View style={style.tituloContainer}>
+                        <Text style={style.titulo}>Seleção exclusiva dos integrantes do TCC</Text>
+                    </View>
+                </View>
+                <Text style={{textAlign: 'center', marginTop: 10,}}>Criado por: Marcos Paulo TCC</Text>
+                <View style={{flexDirection: 'row', justifyContent: 'space-between', padding: 20,}}>
+                    <Text>5 Seguindo</Text>
+                    <Text>Criado em: 03/03/2021</Text>
+                </View>
+                <View style={{padding: 20,}}>
+                    <Receita />
+                    <Receita />
+                    <Receita />
+                    <Receita />
+                    <Receita />
+                </View>
+            </ScrollView>
+        </Layout>
     );
 }
 
