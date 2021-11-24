@@ -34,7 +34,7 @@ const ReceitaFeed = (props) => {
 
   return (
     <>
-    <Header Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
+    <Header Key={props.Key} Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
     <TouchableOpacity onPress={() => navigation.navigate("ReceitaHome")} style={style.container}> 
       <ImageRecipe Image={props.Image}/>
     </TouchableOpacity>
