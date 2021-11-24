@@ -3,13 +3,13 @@ import { StyleSheet, Image, TouchableHighlight, ScrollView } from 'react-native'
 import { Layout, Text } from '@ui-kitten/components';
 import * as Progress from 'react-native-progress';
 
-const ProgressBar = () => {
+const ProgressBar = (props) => {
     return (
       <Layout style={style.container}>
-            <Text style={style.lvl}>LVL: 4</Text>
+            <Text style={style.lvl}>LVL: {props.Level}</Text>
             <Layout style={style.containerProgress}>
-                <Progress.Bar progress={0.3} width={300} height={20} color="#F24333" borderRadius={20} />
-                <Text style={style.progresso}>300/1000</Text>
+                <Progress.Bar progress={props.Atual / (props.Proximo + props.Atual)} width={300} height={20} color="#F24333" borderRadius={20} />
+                <Text style={style.progresso}>{props.Atual}/{props.Proximo + props.Atual}</Text>
             </Layout>
       </Layout>
     );

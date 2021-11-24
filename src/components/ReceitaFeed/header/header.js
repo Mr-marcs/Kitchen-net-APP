@@ -10,14 +10,10 @@ const Header = (props) => {
   
   const [url,setUrl] = useState();
   
-  const source = {
-    uri: url
-  }
-
   return (
     <Layout style={style.container}>
         <Layout style={style.linha1}>
-            <Avatar size="medium" source={require(source)}/>
+            <Avatar size="medium" source={{uri:props.src}}/>
             <Layout style={style.areaTexto}>
                 <Layout style={style.linha1}>
                     <Text>{props.Autor}</Text>

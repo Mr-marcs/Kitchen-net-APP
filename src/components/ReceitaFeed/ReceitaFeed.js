@@ -18,12 +18,14 @@ const ReceitaFeed = (props) => {
   const [imageF,setImage] = useState();
 
   async function GetImage(){
-    
+    console.log("Aqui foi")
     const token = await AsyncStorage.getItem('token');
     const response = await axios.get(base_url + `/users/profiles/${id}`,{headers:{token:token}});
     
     const image = response.data.result.user.image_url;
     setImage(image); 
+    console.log(image)
+    console.log(image_url + '/' + imageF);
   }
 
   useEffect(()=>{

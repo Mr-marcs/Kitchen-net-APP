@@ -3,18 +3,18 @@ import { StyleSheet, Image } from 'react-native';
 import { Layout, Text, Avatar } from '@ui-kitten/components';
 import PfpBigImage from '@components/pfpBigImage/pfpBigImage';
 
-const PersonalInfo = () => {
+const PersonalInfo = (props) => {
     return (
       <Layout style={style.container}>
-          <PfpBigImage />
-          <Text style={style.titulo}>Pedro H. Santos Andrade</Text>
+          <PfpBigImage Id={props.Id}/>
+          <Text style={style.titulo}>{props.Nome}</Text>
           <Layout style={style.row}>
               <Layout style={style.center}>
-                <Text style={style.infoPrincipal}>10k</Text>
+                <Text style={style.infoPrincipal}>{props.Seguidores}</Text>
                 <Text style={style.info}>Seguidores</Text>
               </Layout>
               <Layout style={style.center}>
-                <Text style={style.infoPrincipal}>60</Text>
+                <Text style={style.infoPrincipal}>{props.Seguindo}</Text>
                 <Text style={style.info}>Seguindo</Text>
               </Layout>
           </Layout>

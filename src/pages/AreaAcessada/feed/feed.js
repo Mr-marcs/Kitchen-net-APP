@@ -9,7 +9,7 @@ import {base_url} from '@src/config/base_url.config';
 
 const Feed = (props) => {
   
-  const [page,setPage] = useState();
+  const [page,setPage] = useState(0);
   const [recipe,setRecipe] = useState();
 
   async function getFeedRecipes() {
@@ -35,12 +35,12 @@ const Feed = (props) => {
         <Text>Carregando...</Text>
         :
         (recipe.map(item=>{
-          return(
+          return (item===null)? null
+          :        
           <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
            Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
            Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
-           Key={item.Author}/>
-        )
+           Key={item.Author}/>  
       }))
         }
       </Screen>
