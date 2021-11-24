@@ -1,15 +1,43 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, Image, TouchableHighlight } from 'react-native';
+import { StyleSheet, Image, TouchableHighlight, Touchable } from 'react-native';
 import { Layout, Text, Avatar } from '@ui-kitten/components';
 import pfp from '@assets/imgs/pfp.jpg';
 import Icon from 'react-native-vector-icons/Entypo';
-import base_url from '@src/config/base_url.config';
+import {base_url} from '@src/config/base_url.config';
 import axios from 'axios';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Header = (props) => {
   
   const [url,setUrl] = useState();
-  console.log(props.Id)
+  const [seguindo,setSeguindo] = useState(true);
+  const [color,setColor] = useState('#f24333');
+  
+  useState(()=>{
+      setSeguindo(props.Seguindo);
+      (seguindo) ? ('#f24333') : ("#818181")
+  },[])
+
+  async function handler(){
+  /*    
+    const token = await AsyncStorage.getItem('token');
+    console.log(base_url + `/users/unfollow/${props.Key}`);
+
+    if(seguindo){
+      axios.post(base_url + `/users/unfollow/${props.Key}`,({}),({headers:{token:token}}))
+      
+      setSeguindo(!seguindo)
+    }
+    else {
+      axios.post(base_url + `/users/follow/${props.Key}`,({}),({headers:{token:token}}))
+      setSeguindo(!seguindo);
+    }
+  */
+    setSeguindo(!seguindo)
+    (seguindo) ? setColor("#f24333"):setColor("#818181");
+  }
+
   return (
     <Layout style={style.container}>
         <Layout style={style.linha1}>
@@ -17,7 +45,9 @@ const Header = (props) => {
             <Layout style={style.areaTexto}>
                 <Layout style={style.linha1}>
                     <Text>{props.Autor}</Text>
-                    <Text style={style.seguir}> - Seguir</Text>
+                    <TouchableOpacity onPress={()=>{handler()}}>
+                      <Text style={{'fontWeight': 'bold','color':color}}> - {(seguindo)?"seguindo":"seguir"}</Text>
+                    </TouchableOpacity>
                 </Layout>
                 <Text style={style.data}>{props.Data}</Text>
             </Layout>
@@ -41,10 +71,6 @@ const style = StyleSheet.create({
   areaTexto: {
       justifyContent: 'space-between',
       marginLeft: 10,
-  },
-  seguir: {
-    fontWeight: 'bold',
-    color: '#F24333',
   },
   data: {
     fontSize: 12,

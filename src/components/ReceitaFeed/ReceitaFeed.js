@@ -16,14 +16,17 @@ const ReceitaFeed = (props) => {
   const id = props.Key;
 
   const [imageF,setImage] = useState();
+  const [user,setUser] = useState();
 
   async function GetImage(){
     console.log("Aqui foi")
     const token = await AsyncStorage.getItem('token');
     const response = await axios.get(base_url + `/users/profiles/${id}`,{headers:{token:token}});
     
+
     const image = response.data.result.user.image_url;
-    setImage(image); 
+    setImage(image);
+    setUser(response.data.result.user.AmIFollowing) 
     console.log(image)
     console.log(image_url + '/' + imageF);
   }
@@ -34,7 +37,7 @@ const ReceitaFeed = (props) => {
 
   return (
     <>
-    <Header Key={props.Key} Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
+    <Header Key={props.Key} Seguindo={user} Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
     <TouchableOpacity onPress={() => navigation.navigate("ReceitaHome")} style={style.container}> 
       <ImageRecipe Image={props.Image}/>
     </TouchableOpacity>

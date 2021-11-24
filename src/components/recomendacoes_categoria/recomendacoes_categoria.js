@@ -27,7 +27,7 @@ const RecomendacoesCategoria = (props) => {
                 break; 
     
     }
-    console.log(categoryImage)
+    console.log('Categoria:' + categoryImage)
     return (
         <ImageBackground source={categoryImage} style={style.container} imageStyle={style.imagemfundo}>
             <View style={style.effects}>
