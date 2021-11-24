@@ -27,16 +27,16 @@ const ReceitaFeed = (props) => {
     console.log(image)
     console.log(image_url + '/' + imageF);
   }
-
+   
   useEffect(()=>{
     GetImage();
   },[])
 
   return (
     <>
-    <Header Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF}/>
+    <Header Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
     <TouchableOpacity onPress={() => navigation.navigate("ReceitaHome")} style={style.container}> 
-      <ImageRecipe />
+      <ImageRecipe Image={props.Image}/>
     </TouchableOpacity>
     <RecipeInfo Titulo={props.Titulo} NumeroEtapas={props.Etapas} Laikado={props.Laikado} Dificuldade={props.Dificuldade} NumeroPorcao={props.NumeroPorcao} Like={props.Likes} Comment={props.Comment} />
     </>

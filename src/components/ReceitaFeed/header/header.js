@@ -9,7 +9,7 @@ import axios from 'axios';
 const Header = (props) => {
   
   const [url,setUrl] = useState();
-  
+  console.log(props.Id)
   return (
     <Layout style={style.container}>
         <Layout style={style.linha1}>

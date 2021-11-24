@@ -5,7 +5,7 @@ import Screen from '@components/screen/screen';
 import ReceitaFeed from '@components/ReceitaFeed/ReceitaFeed';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {base_url} from '@src/config/base_url.config';
+import {base_url, image_url} from '@src/config/base_url.config';
 
 const Feed = (props) => {
   
@@ -40,7 +40,7 @@ const Feed = (props) => {
           <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
            Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
            Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
-           Key={item.Author}/>  
+           Key={item.Author} Image={image_url + '/' + item.thumbnail}/>  
       }))
         }
       </Screen>

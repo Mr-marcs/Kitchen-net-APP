@@ -35,7 +35,7 @@ const Home = () => {
                 token: token
             }
         })
-        
+        console.log(categories.data)
         setCategory(categories.data)
     }
 
@@ -53,13 +53,13 @@ const Home = () => {
                 {
                    (category==undefined)?
                    //AQUI È O LOADING
-                   <Text>Oi</Text>
+                   <Text>Carregando...</Text>
                    //AQUi É O LOADING
                    :
                    //DINAMICO
                    category.map(item=>{
                        return(
-                           <RecomendacoesCategoria name={item.CategoryName} key={item.Id}/>
+                           <RecomendacoesCategoria Key={item.Id} name={item.CategoryName} key={item.Id}/>
                        )
                    })
                    //DINAMICO
