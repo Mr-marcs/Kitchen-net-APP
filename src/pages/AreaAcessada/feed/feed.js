@@ -13,7 +13,7 @@ const Feed = (props) => {
   const [page,setPage] = useState(0);
   const [recipe,setRecipe] = useState();
 
-  async function getFeedRecipes() {
+  async function getFeedRecipes() {r
     const token = await AsyncStorage.getItem('token');
     
     const result = await axios.post(base_url + '/feed',{page: page},{
@@ -21,9 +21,10 @@ const Feed = (props) => {
         token: token
       }
     })
-    setRecipe(result.data);
+    console.log(result)
+    setRecipe(result[0])
   }
-  
+    
     useEffect(()=>{
       getFeedRecipes();
     },[])

@@ -26,7 +26,7 @@ const RecomendacoesCategoria = (props) => {
                 break; 
     
     }
-    console.log(categoryImage)
+    console.log('Categoria:' + categoryImage)
     return (
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Categorias', {name: props.name})}>
             <View>
