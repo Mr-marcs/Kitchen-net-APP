@@ -9,6 +9,7 @@ import Panela from '@assets/svg/panela.svg';
 import Perfil from '@pages/AreaAcessada/Perfil/Perfil';
 import AdicionarReceita from '@pages/AreaAcessada/AdicionarReceita/AdicionarReceita';
 import { View } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useNavigation } from '@react-navigation/core';
 
 const Tab = createBottomTabNavigator();
@@ -92,6 +93,7 @@ const BottomTabs = () => {
                         );
                     },
                 }}
+                
             />
         </Tab.Navigator>
     );

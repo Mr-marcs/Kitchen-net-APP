@@ -18,23 +18,25 @@ const ReceitaFeed = (props) => {
   const [imageF,setImage] = useState();
 
   async function GetImage(){
-    
+    console.log("Aqui foi")
     const token = await AsyncStorage.getItem('token');
     const response = await axios.get(base_url + `/users/profiles/${id}`,{headers:{token:token}});
     
     const image = response.data.result.user.image_url;
     setImage(image); 
+    console.log(image)
+    console.log(image_url + '/' + imageF);
   }
-
+   
   useEffect(()=>{
     GetImage();
   },[])
 
   return (
     <>
-    <Header Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF}/>
+    <Header Key={props.Key} Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
     <TouchableOpacity onPress={() => navigation.navigate("ReceitaHome")} style={style.container}> 
-      <ImageRecipe />
+      <ImageRecipe Image={props.Image}/>
     </TouchableOpacity>
     <RecipeInfo Titulo={props.Titulo} NumeroEtapas={props.Etapas} Laikado={props.Laikado} Dificuldade={props.Dificuldade} NumeroPorcao={props.NumeroPorcao} Like={props.Likes} Comment={props.Comment} />
     </>

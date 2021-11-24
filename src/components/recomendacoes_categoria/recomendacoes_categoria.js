@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, Text, View, ImageBackground, TouchableWithoutFeedback } from 'react-native';
+import images from '@assets/categorias/1.jpg'
 import { useNavigation } from '@react-navigation/core';
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
 
 const RecomendacoesCategoria = (props) => {
+    const [categoryImage,setCategoryImage] = useState();
     const navigation = useNavigation();
+
+    switch (props.Id) {
+            case 1:
+                setCategoryImage(require('@assets/categorias/1.jpg'))
+                break;
+            case 2:
+                setCategoryImage(require('@assets/categorias/2.jpg'))
+                break;
+            case 3:
+                setCategoryImage(require('@assets/categorias/3.jpg'))
+                break;
+            case 4:
+                setCategoryImage(require('@assets/categorias/4.jpg'))
+                break;
+            case 5:
+                setCategoryImage(require('@assets/categorias/5.jpeg'))
+                break; 
+    
+    }
+    console.log(categoryImage)
     return (
         <TouchableWithoutFeedback onPress={() => navigation.navigate('Categorias', {name: props.name})}>
             <View>

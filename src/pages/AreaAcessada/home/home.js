@@ -36,7 +36,7 @@ const Home = () => {
                 token: token
             }
         })
-        
+        console.log(categories.data)
         setCategory(categories.data)
     }
 
@@ -54,9 +54,7 @@ const Home = () => {
                         <Text style={style.subTitulo}>O que gostaria de cozinhar hoje?</Text>
                         {
                             (category==undefined)?
-                            //AQUI È O LOADING
                             <LoadingComponent/>
-                            //AQUi É O LOADING
                             :
                             //DINAMICO
                             category.map(item=>{
