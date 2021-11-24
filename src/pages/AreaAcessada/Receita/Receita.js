@@ -7,14 +7,14 @@ import RecipeListLine from '@components/RecipeListLine/RecipeListLine';
 
 const Receita = () => {
     return (
-      <ScrollView  style={style.container}>
-        <Header name="Lista de receitas"/>
-        <Screen>
-            <Layout>
-                <RecipeListLine />
-            </Layout>
-        </Screen>
-      </ScrollView>
+        <ScrollView ScrollView  style={style.container}>
+            <Header name="Lista de receitas"/>
+            <Screen>
+                <Layout>
+                    <RecipeListLine />
+                </Layout>
+            </Screen>
+        </ScrollView>
     );
 }
 

@@ -34,8 +34,6 @@ const style = StyleSheet.create({
         borderRadius: 25,
         backgroundColor:'#E24333',
         justifyContent: 'center',
-        borderWidth: 1,
-        borderColor: '#fff',
     },
     texto: {
         textAlign: 'center',

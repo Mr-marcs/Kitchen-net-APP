@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { StyleSheet, Text, View, Image, TextInput, TouchableHighlight, TouchableOpacity, KeyboardAvoidingView, ToastAndroid} from 'react-native';
 import formStyle from '@styles/form';
 import Screen from '@components/screen/screen';
@@ -8,13 +8,18 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {base_url} from '@src/config/base_url.config';
 import { useNavigation } from '@react-navigation/core';
 
-const Login = () => {
-    
+const Login = ({route}) => {
     const [username,setUsername] = useState();
     const [password,setPassword] = useState();
     const [load,setLoad] = useState(false);
     const navigation = useNavigation();
-    
+    console.log(route);
+    useEffect(() => {
+        if(route.params != undefined){
+            setLoad(false);
+        }
+    });
+
     async function Login(){
         const showToast = () => {
             ToastAndroid.show("Erro em conectar com o sistema", ToastAndroid.LONG);
@@ -32,6 +37,8 @@ const Login = () => {
             console.log(response.data)
             if(response.data.validated){ 
                 await AsyncStorage.setItem('token',response.data.token)
+                setUsername('');
+                setPassword('');
                 navigation.navigate("AreaAcessada")
             }
             

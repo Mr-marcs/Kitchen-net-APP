@@ -8,21 +8,20 @@ import Receita from '@components/Buscar/Carrosel/Tabs/Receita/Receita';
 const Categorias = ({route, navigation}) => {
     const {name} = route.params;
     return (
-        <View style={style.container}>
+        <Layout style={style.container}>
             <HeaderSemBuscar name={"Categoria " + name}/>
             <ScrollView style={{padding: 20}}>
                 <Receita />
                 <Receita />
                 <Receita />
             </ScrollView>
-        </View>
+        </Layout>
     );
 }
 
 const style = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: '#fff',
     },
 });
 
