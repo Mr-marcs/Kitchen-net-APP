@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, TouchableHighlight, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import Screen from '@components/screen/screen';
 import Header from '@components/header/header';
 import PersonalInfo from '@components/Perfil/PersonalInfo/PersonalInfo';
@@ -10,16 +10,18 @@ import ListasReceitas from '@components/Perfil/ListasReceitas/ListasREceitas';
 
 const Perfil = () => {
     return (
-      <ScrollView  style={style.container}>
+      <View style={style.container}>
         <Header name="Perfil"/>
-        <Screen>
-            <PersonalInfo />
-            <ProgressBar />
-            <ConfigButton />
-            <ReceitaCriada />
-            <ListasReceitas />
-        </Screen>
-      </ScrollView>
+        <ScrollView>
+          <Screen>
+              <PersonalInfo />
+              <ProgressBar />
+              <ConfigButton />
+              <ReceitaCriada />
+              <ListasReceitas />
+          </Screen>
+        </ScrollView>
+      </View>
     );
 }
 

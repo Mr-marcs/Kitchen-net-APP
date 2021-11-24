@@ -13,7 +13,7 @@ const Login = ({route}) => {
     const [password,setPassword] = useState();
     const [load,setLoad] = useState(false);
     const navigation = useNavigation();
-    console.log(route);
+    
     useEffect(() => {
         if(route.params != undefined){
             setLoad(false);

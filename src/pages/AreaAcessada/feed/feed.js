@@ -29,23 +29,25 @@ const Feed = (props) => {
     },[])
 
   return (
-    <ScrollView style={style.container}>
+    <View>
       <Header name="Feed"/>
-      <Screen>
-        {(!recipe)?
-        <LoadingComponent />
-        :
-        (recipe.map(item=>{
-          return(
-          <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
-            Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
-            Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
-            Key={item.Author}/>
-        )
-      }))
-        }
-      </Screen>
-    </ScrollView>
+      <ScrollView style={style.container}>        
+        <Screen>
+          {(!recipe)?
+          <LoadingComponent />
+          :
+          (recipe.map(item=>{
+            return(
+            <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
+              Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
+              Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
+              Key={item.Author}/>
+          )
+        }))
+          }
+        </Screen>
+      </ScrollView>
+    </View>
   );
 }
 

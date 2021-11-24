@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { StyleSheet, Image, TouchableHighlight, ScrollView} from 'react-native';
+import { StyleSheet, View, TouchableHighlight, ScrollView} from 'react-native';
 import Screen from '@components/screen/screen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Header from '@components/header/header';
@@ -45,30 +45,32 @@ const Home = () => {
     },[])
 
     return (
-        <ScrollView  style={style.container}>
+        <View style={style.container}>
             <Header name="Home"/>
-            <Screen>
-                <Layout style={style.content}>
-                    <Text style={style.titulo}>Olá, {username}</Text>
-                    <Text style={style.subTitulo}>O que gostaria de cozinhar hoje?</Text>
-                    {
-                        (category==undefined)?
-                        //AQUI È O LOADING
-                        <LoadingComponent/>
-                        //AQUi É O LOADING
-                        :
-                        //DINAMICO
-                        category.map(item=>{
-                            return(
-                                <RecomendacoesCategoria name={item.CategoryName} key={item.Id}/>
-                            )
-                        })
-                        //DINAMICO
-                    }        
-                    <CarouselPopularity />
-                </Layout>
-            </Screen>
-        </ScrollView>
+            <ScrollView  >
+                <Screen>
+                    <Layout style={style.content}>
+                        <Text style={style.titulo}>Olá, {username}</Text>
+                        <Text style={style.subTitulo}>O que gostaria de cozinhar hoje?</Text>
+                        {
+                            (category==undefined)?
+                            //AQUI È O LOADING
+                            <LoadingComponent/>
+                            //AQUi É O LOADING
+                            :
+                            //DINAMICO
+                            category.map(item=>{
+                                return(
+                                    <RecomendacoesCategoria name={item.CategoryName} key={item.Id}/>
+                                )
+                            })
+                            //DINAMICO
+                        }        
+                        <CarouselPopularity />
+                    </Layout>
+                </Screen>
+            </ScrollView>
+        </View>
     );
 }
 

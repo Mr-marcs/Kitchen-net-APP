@@ -10,6 +10,7 @@ import { ApplicationProvider } from '@ui-kitten/components';
 import { default as themeCustom } from '@assets/custom-theme.json'; // <-- Import app theme
 import LoadingScreen from '@components/Loading/Screen/LoadingScreen';
 import { ThemeContext } from './theme-context';
+import { StatusBar } from 'react-native';
 
 export default () => {
   const [theme, setTheme] = React.useState('light');
@@ -28,6 +29,7 @@ export default () => {
   else{
     return (
       <>
+        <StatusBar/>
         <ThemeContext.Provider value={{theme, ToggleTheme}}>
           <ApplicationProvider {...eva} theme={{...eva[theme], ...themeCustom}}>
             <Routes />
