@@ -30,7 +30,7 @@ const ReceitaFeed = (props) => {
 
     
   }
-   
+  
   useEffect(()=>{
     GetImage();
   },[])

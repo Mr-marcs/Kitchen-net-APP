@@ -7,6 +7,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {base_url, image_url} from '@src/config/base_url.config';
 import LoadingComponent from '@components/Loading/Component/LoadingComponent';
+import { Layout } from '@ui-kitten/components';
 
 const Feed = (props) => {
   
@@ -32,24 +33,24 @@ const Feed = (props) => {
   return (
     <View>
       <Header name="Feed"/>
-      <ScrollView style={style.container}>        
-        <Screen>
-         {(!recipe)?
-          <LoadingComponent />
-          :
-          (recipe.map(item=>{
-            return(
-            (item===null)? null
-            :   
-            <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
-             Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
-             Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
-             Key={item.Author} Image={image_url + '/' + item.thumbnail}/>
-            )
-            }))
-          }
-        </Screen>
-      </ScrollView>
+      <Layout style={style.container}>
+        <ScrollView>        
+          <Screen>
+            {(!recipe)? <LoadingComponent /> :
+            (recipe.map(item=>{
+              return(
+              (item===null)? null
+              :   
+              <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
+                Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
+                Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
+                Key={item.Author} Image={image_url + '/' + item.thumbnail}/>
+              )
+              }))
+            }
+          </Screen>
+        </ScrollView>
+      </Layout>
     </View>
   );
 }
@@ -57,6 +58,7 @@ const Feed = (props) => {
 const style = StyleSheet.create({
   container:{
     flex: 0,
+    paddingBottom: 120,
   },
 });
 
