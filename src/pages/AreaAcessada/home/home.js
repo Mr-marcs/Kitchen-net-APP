@@ -77,7 +77,7 @@ const Home = () => {
                             :
                             category.map(item=>{
                                 return(
-                                    <RecomendacoesCategoria name={item.CategoryName} key={item.Id} cod={1}/>
+                                    <RecomendacoesCategoria name={item.CategoryName} key={item.Id} cod={item.Id}/>
                                 );
                             })
                         }        
