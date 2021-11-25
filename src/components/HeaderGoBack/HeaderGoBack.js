@@ -1,6 +1,6 @@
 import { Layout } from '@ui-kitten/components';
 import React from 'react';
-import { StyleSheet, Text, View, Platform, StatusBar } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
@@ -26,7 +26,7 @@ const style = StyleSheet.create({
     },
     header: {
         width: '100%',
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight+15 : 15,
+        paddingTop: 25,
         paddingBottom: 10,
         display: 'flex',
         flexDirection: 'row',

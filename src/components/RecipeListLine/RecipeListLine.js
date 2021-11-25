@@ -41,7 +41,7 @@ const CriarListaButton = () => {
                     <Text style={styleButton.titulo}>Criar Lista de receitas</Text>
                 </Layout>
             </TouchableOpacity>
-            <Overlay isVisible={visible} onBackdropPress={() => toggleOverlay}>
+            <Overlay isVisible={visible} onBackdropPress={toggleOverlay}>
                 <View style={styleButton.overlay}>
                     <Text style={{fontSize:18}}>Nome da Lista de Receitas:</Text>
                     <TextInput 

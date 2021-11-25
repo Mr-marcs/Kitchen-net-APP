@@ -18,7 +18,6 @@ const Perfil = (props) => {
   async function GetUserInfo(){
 
     const token = await AsyncStorage.getItem('token');
-    console.log(token)
     
     const result = await axios.get(base_url + '/user',{headers:{
       token: token
@@ -28,7 +27,6 @@ const Perfil = (props) => {
   }
   
   useEffect(()=>{
-    console.log(user)
     GetUserInfo();
   },[])
 

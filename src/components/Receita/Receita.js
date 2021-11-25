@@ -1,37 +1,48 @@
 import React from 'react';
 import { useNavigation } from '@react-navigation/core';
-import { StyleSheet, ImageBackground, TouchableHighlight, Image, View } from 'react-native';
+import { StyleSheet, ImageBackground, TouchableOpacity, Image, View, TouchableWithoutFeedback} from 'react-native';
 import { Layout, Text } from '@ui-kitten/components';
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
 import Icon2 from 'react-native-vector-icons/AntDesign';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import { image_url } from '@src/config/base_url.config';
+import Icon from 'react-native-vector-icons/Entypo';
 
 const Receita = (props) => {
-    console.log(props);
     const navigation = useNavigation();
 
     return (
-        <TouchableOpacity style={style.container} onPress={() => navigation.navigate("ReceitaHome",{id:props.Id,author:props.Author})}>
-            <ImageBackground source={{uri:props.Imagem}} style={style.container} imageStyle={style.imagemfundo}>
-                <Layout style={style.effects}>
-                    <Image source={{uri:props.Imagem
-                    }} style={style.imagem}/>
-                    <View style={style.areaTexto}>
-                        <View style={style.linha1}>
-                            <Text style={style.nome}>{props.Nome}</Text>
-                        </View>
-                        <View style={style.infoReceita}>
-                            <Text style={style.autorReceita}>{props.Data}</Text>
-                            <View style={style.curitdas}>
-                                <Icon2 name="hearto" size={14} color="#F24333" />
-                                <Text style={style.autorReceita}> {props.like} chefs</Text>
+        <View style={style.container}>
+            <TouchableWithoutFeedback  onPress={() => navigation.navigate("ReceitaHome",{id:props.Id,author:props.RecipeAuthor})}>
+                <View>
+                    <ImageBackground source={{uri:props.Imagem}} style={style.container} imageStyle={style.imagemfundo}>
+                        <Layout style={style.effects}>
+                            <Image source={{uri:props.Imagem
+                            }} style={style.imagem}/>
+                            <View style={style.areaTexto}>
+                                <View>
+                                    <View style={style.linha1}>
+                                        <Text style={style.nome}>{props.Nome}</Text>
+                                        <TouchableOpacity style={{padding: 5}} onPress={() => navigation.navigate("ReceitaOptions", props)}>
+                                            <Icon name="dots-three-vertical" size={20} color="#fff"/>
+                                        </TouchableOpacity>
+                                    </View>
+                                    <View style={style.linha2}>
+                                        <Text style={style.autorReceita}>By: {props.RecipeAuthor}</Text>
+                                    </View>
+                                </View>
+                                <View style={style.infoReceita}>
+                                    <Text style={style.autorReceita}>{props.Date}</Text>
+                                    <View style={style.curitdas}>
+                                        <Icon2 name="hearto" size={14} color="#F24333" />
+                                        <Text style={style.autorReceita}> {props.like} chefs</Text>
+                                    </View>
+                                </View>
                             </View>
-                        </View>
-                    </View>
-                </Layout>
-            </ImageBackground>
-        </TouchableOpacity>
+                        </Layout>
+                    </ImageBackground>
+                </View>
+            </TouchableWithoutFeedback>
+        </View>
     );
 }
 
@@ -57,6 +68,7 @@ const style = StyleSheet.create({
     },
     areaTexto: {
         padding: 5,
+        paddingRight: 10,
         flex: 1,
         justifyContent: 'space-between',
     },
@@ -73,7 +85,8 @@ const style = StyleSheet.create({
     },
     linha1: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     curitdas: {
         flexDirection: 'row',

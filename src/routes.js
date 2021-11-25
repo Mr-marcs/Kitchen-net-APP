@@ -18,13 +18,15 @@ import Buscar from '@pages/AreaAcessada/Buscar/Buscar';
 import Categorias from '@pages/AreaAcessada/Categorias/Categorias';
 import EsqueceuSenha from '@pages/AreaLogin/EsqueceuSenha/EsqueceuSenha';
 import Confirmacao from '@pages/AreaLogin/Confirmacao/Confirmacao';
+import ReceitaOptions from '@pages/AreaAcessada/ReceitaOptions/ReceitaOptions';
+import AdicionarEmLista from '@pages/AreaAcessada/AdicionarEmLista/AdicionarEmLista';
 
 const Stack = createNativeStackNavigator();
 
 const Routes = () => {
     return (
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="AreaLogin" screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName="AreaAcessada" screenOptions={{headerShown: false}}>
               <Stack.Screen name="AreaLogin" component={AreaLogin}/>
               <Stack.Screen name="AreaAcessada" component={AreaAcessada}/>
           </Stack.Navigator>
@@ -58,6 +60,8 @@ const AreaAcessada = () => {
       <Stack.Screen name="EtapaFinal" component={EtapaFinal}/>
       <Stack.Screen name="Buscar" component={Buscar}/>
       <Stack.Screen name="Categorias" component={Categorias}/>
+      <Stack.Screen name="ReceitaOptions" component={ReceitaOptions}/>
+      <Stack.Screen name="AdicionarEmLista" component={AdicionarEmLista}/>
     </Stack.Navigator>
   );
 }

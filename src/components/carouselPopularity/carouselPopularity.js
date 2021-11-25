@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { StyleSheet, Dimensions, View, TouchableHighlight } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { Layout, Tab, Text } from '@ui-kitten/components';
+import { Layout, Text } from '@ui-kitten/components';
+import { Tab, TabView } from '@ui-kitten/components';
 import CarouselPages from "@components/CarouselPages/CarouselPages";
-import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
+import { SceneMap, TabBar } from 'react-native-tab-view';
+//import { TabView } from 'react-native-tab-view';
 import axios from 'axios'
 import LoadingComponent from "@components/Loading/Component/LoadingComponent";
 const items = ["Mais curtidas", "Mais recentes", "Em alta"];
@@ -42,7 +44,7 @@ const CarouselPopularity = () => {
     }
     return (
         <Layout style={style.container}>
-            <TabView
+            {/*<TabView
                 lazy
                 renderLazyPlaceholder={LoadingComponent}
                 navigationState={{ index, routes }}
@@ -54,10 +56,10 @@ const CarouselPopularity = () => {
                     third: FirstRoute,
                 })}
                 renderTabBar={TabBarView}
-            />
-            {/*<TabView
-            selectedIndex={selectedIndex}
-            onSelect={index => setSelectedIndex(index)}>
+            />*/}
+            <TabView
+            selectedIndex={index}
+            onSelect={index => setIndex(index)}>
                 <Tab title="Mais curtidas" >
                     <CarouselPages Index={0}/>
                 </Tab>
@@ -67,7 +69,7 @@ const CarouselPopularity = () => {
                 <Tab title="Em alta">
                     <CarouselPages Index={2}/>
                 </Tab>
-            </TabView>*/}
+            </TabView>
         </Layout>
     );
 }

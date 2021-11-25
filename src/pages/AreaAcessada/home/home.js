@@ -30,13 +30,32 @@ const Home = () => {
             }
         })
         setUsername(response.data.result.user.name);
-        
+        //setUsername('Henrique Yamada');
         const categories = await axios.get(base_url + '/home/categories',{
             headers: {
                 token: token
             }
         })
-        
+        /*const categories = {
+            data: [
+                {
+                    CategoryName: 'Sobremesa',
+                    Id: 1,
+                },
+                {
+                    CategoryName: 'Massas',
+                    Id: 2,
+                },
+                {
+                    CategoryName: 'Picante',
+                    Id: 3,
+                },
+                {
+                    CategoryName: 'Lanches',
+                    Id: 4,
+                },
+            ],
+        }*/
         setCategory(categories.data)
     }
 

@@ -9,7 +9,7 @@ import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
 const CarouselPages = (props) => {
 
-    const [recipe,setRecipe] = useState();
+    const [recipe ,setRecipe] = useState();
     const index = props.Index    
     async function GetRecipes(carrosel_index) {
 
@@ -35,6 +35,32 @@ const CarouselPages = (props) => {
     useEffect(()=>{
         GetRecipes(index);
     },[])
+    /*const recipes = [
+      {
+        Id: 1,
+        Author: 'Henrique Yamada2',
+        thumbnail: 'https://pipe.miroware.io/60a47afdab37f801c2e52bb1/TCC/Receitas/receita1.jpg',
+        Name: 'Pão de queijo',
+        Created_At: '30/04/2021',
+        Likes: 21,
+      },
+      {
+        Id: 2,
+        Author: 'Henrique Yamada3',
+        thumbnail: 'https://pipe.miroware.io/60a47afdab37f801c2e52bb1/TCC/Receitas/receita2.jpg',
+        Name: 'Pudim',
+        Created_At: '30/04/2021',
+        Likes: 25,
+      },
+      {
+        Id: 3,
+        Author: 'Henrique Yamada1',
+        thumbnail: 'https://pipe.miroware.io/60a47afdab37f801c2e52bb1/TCC/Receitas/receita3.jpg',
+        Name: 'Coxinha',
+        Created_At: '31/04/2021',
+        Likes: 15,
+      },
+    ]*/
 
     return (
       <Layout style={style.container}>
@@ -45,8 +71,12 @@ const CarouselPages = (props) => {
             (recipe.map(item=>{
               return(
                 <Receita RecipeId={item.Id} RecipeAuthor={item.Author} Imagem={image_url + '/' + item.thumbnail} Nome={item.Name} Autor={item.Author_name} Date={item.Created_At} like={item.Likes} key={item.Author + '@' + item.Id}/>
-              )
+                //<Receita RecipeId={item.Id} RecipeAuthor={item.Author} Imagem={item.thumbnail} Nome={item.Name} Date={item.Created_At} like={item.Likes} key={item.Author + '@' + item.Id}/>
+              );
             }))
+            /*recipes.map(item => (
+              <Receita RecipeId={item.Id} RecipeAuthor={item.Author} Imagem={item.thumbnail} Nome={item.Name} Date={item.Created_At} like={item.Likes} key={item.Author + '@' + item.Id}/>
+            ))*/
           }
       </Layout>
     );

@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/core';
 import React from 'react';
-import { StyleSheet, Text, View, Platform, StatusBar } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/Ionicons';
 
@@ -29,7 +29,7 @@ const style = StyleSheet.create({
     },
     header: {
         width: '100%',
-        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight+15 : 15,
+        paddingTop: 25,
         paddingBottom: 10,
         backgroundColor: '#F24333',
         display: 'flex',
