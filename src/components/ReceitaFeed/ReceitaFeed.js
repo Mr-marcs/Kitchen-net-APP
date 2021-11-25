@@ -27,7 +27,7 @@ const ReceitaFeed = (props) => {
     setImage(image);
     setUser(response.data.result.user.AmIFollowing) 
     
-
+    console.log(image_url + '/' + imageF);
     
   }
   
