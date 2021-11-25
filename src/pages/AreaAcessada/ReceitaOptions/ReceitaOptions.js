@@ -28,7 +28,7 @@ const ReceitaOptions = (props) => {
                     <Text style={{fontSize: 20, fontWeight: 'bold', marginTop: 10, textAlign: 'center'}}>{receita.Nome}</Text>
                     <Text>by: {receita.RecipeAuthor}</Text>
                 </View>
-                <TouchableWithoutFeedback onPress={() => alert('lol')}>
+                <TouchableWithoutFeedback onPress={() => navigation.goBack()}>
                     <View style={{marginTop: 10, padding: 20,}}>
                         <View style={{flexDirection: 'row', alignItems: 'center', marginLeft: 10}}>
                             <Icon name="hearto" size={24} color="#000" />
