@@ -36,20 +36,16 @@ const Feed = (props) => {
       <Layout style={style.container}>
         <ScrollView>        
           <Screen>
-            {(!recipe)?
-              <LoadingComponent />
-            :
-              (recipe.map(item=>{
-                console.log(item)
-                return(
-                  (item===null)? null
-                  :
-                  <ReceitaFeed Autor={item.Author_name} key={item.Id + '@' + item.Author_name} Data={item.Created_At} Titulo={item.Name} 
-                    Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
-                    Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
-                    Image={image_url + '/' + item.thumbnail} 
-                  />
-                  )
+            {(!recipe)? <LoadingComponent /> :
+            (recipe.map(item=>{
+              return(
+              (item===null)? null
+              :   
+              <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
+                Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
+                Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
+                Key={item.Author} Image={image_url + '/' + item.thumbnail}/>
+              )
               }))
             }
           </Screen>
@@ -62,7 +58,11 @@ const Feed = (props) => {
 const style = StyleSheet.create({
   container:{
     flex: 0,
+<<<<<<< HEAD
+    paddingBottom: 120,
+=======
     marginBottom: 120,
+>>>>>>> main
   },
 });
 
