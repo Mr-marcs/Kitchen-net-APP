@@ -36,7 +36,7 @@ const Home = () => {
                 token: token
             }
         })
-        console.log(categories.data)
+        
         setCategory(categories.data)
     }
 
@@ -45,10 +45,10 @@ const Home = () => {
     },[])
 
     return (
-        <View style={style.container}>
+        <Layout style={style.container}>
             <Header name="Home"/>
-            <ScrollView  >
-                <Screen>
+            <ScrollView>
+                <Layout style={{padding: 20,}}>
                     <Layout style={style.content}>
                         <Text style={style.titulo}>Olá, {username}</Text>
                         <Text style={style.subTitulo}>O que gostaria de cozinhar hoje?</Text>
@@ -56,19 +56,17 @@ const Home = () => {
                             (category==undefined)?
                             <LoadingComponent/>
                             :
-                            //DINAMICO
                             category.map(item=>{
                                 return(
-                                    <RecomendacoesCategoria name={item.CategoryName} key={item.Id}/>
-                                )
+                                    <RecomendacoesCategoria name={item.CategoryName} key={item.Id} cod={1}/>
+                                );
                             })
-                            //DINAMICO
                         }        
                         <CarouselPopularity />
                     </Layout>
-                </Screen>
+                </Layout>
             </ScrollView>
-        </View>
+        </Layout>
     );
 }
 
