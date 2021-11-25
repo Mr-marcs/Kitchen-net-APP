@@ -1,2 +1,2 @@
-export const base_url = 'http://e067-2804-18-8c1-877e-d0c2-a42d-cdd2-a916.ngrok.io/api';
-export const image_url = 'http://e067-2804-18-8c1-877e-d0c2-a42d-cdd2-a916.ngrok.io/uploads/images';
+export const base_url = 'https://0d55-2804-431-cfdd-ed07-a5dd-f273-bb7e-baaa.ngrok.io/api';
+export const image_url = 'https://0d55-2804-431-cfdd-ed07-a5dd-f273-bb7e-baaa.ngrok.io/uploads/images';

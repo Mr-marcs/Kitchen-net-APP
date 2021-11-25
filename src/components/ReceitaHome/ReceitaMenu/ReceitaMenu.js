@@ -4,7 +4,10 @@ import { Tab, TabView, Text } from '@ui-kitten/components';
 import Pizza from '@assets/svg/pizza.svg';
 import Icon2 from 'react-native-vector-icons/AntDesign';
 
-const ReceitaMenu = () => {
+const ReceitaMenu = ({route,navigation}) => {
+    
+    console.log(route)
+    
     return (
     <View style={style.container}>
         <View style={style.textContainer}>

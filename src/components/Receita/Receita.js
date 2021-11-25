@@ -5,23 +5,21 @@ import { Layout, Text } from '@ui-kitten/components';
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
 import Icon2 from 'react-native-vector-icons/AntDesign';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { image_url } from '@src/config/base_url.config';
 
 const Receita = (props) => {
     console.log(props);
     const navigation = useNavigation();
+
     return (
-        <TouchableOpacity style={style.container} onPress={() => navigation.navigate("ReceitaHome")}>
-            <ImageBackground source={imagencategoria} style={style.container} imageStyle={style.imagemfundo}>
+        <TouchableOpacity style={style.container} onPress={() => navigation.navigate("ReceitaHome",{id:props.Id,author:props.Author})}>
+            <ImageBackground source={{uri:props.Imagem}} style={style.container} imageStyle={style.imagemfundo}>
                 <Layout style={style.effects}>
-                    <Image source={imagencategoria} style={style.imagem}/>
+                    <Image source={{uri:props.Imagem
+                    }} style={style.imagem}/>
                     <View style={style.areaTexto}>
-                        <View>
-                            <View style={style.linha1}>
-                                <Text style={style.nome}>{props.Nome}</Text>
-                            </View>
-                            <View style={style.linha2}>
-                                <Text style={style.autorReceita}>By: {props.Autor}</Text>
-                            </View>
+                        <View style={style.linha1}>
+                            <Text style={style.nome}>{props.Nome}</Text>
                         </View>
                         <View style={style.infoReceita}>
                             <Text style={style.autorReceita}>{props.Data}</Text>

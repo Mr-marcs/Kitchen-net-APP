@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState,useEffect} from 'react';
 import { StyleSheet, Image } from 'react-native';
 import { Layout, Text, Avatar } from '@ui-kitten/components';
 import PfpBigImage from '@components/pfpBigImage/pfpBigImage';
+import { set } from 'react-native-reanimated';
+import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
 const PersonalInfo = (props) => {
+
     return (
       <Layout style={style.container}>
           <PfpBigImage Id={props.Id}/>

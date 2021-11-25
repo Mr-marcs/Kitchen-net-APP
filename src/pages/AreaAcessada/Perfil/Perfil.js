@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, TouchableHighlight, ScrollView, Text } from 'react-native';
+import { StyleSheet, Image, TouchableHighlight, ScrollView, Text, View } from 'react-native';
 import Screen from '@components/screen/screen';
 import Header from '@components/header/header';
 import PersonalInfo from '@components/Perfil/PersonalInfo/PersonalInfo';
@@ -24,9 +24,7 @@ const Perfil = (props) => {
       token: token
     }})
 
-    console.log(user)
-
-    setUser(result.data.result.user);
+    setUser(result.data.result.user)
   }
   
   useEffect(()=>{
@@ -38,7 +36,7 @@ const Perfil = (props) => {
     <View style={style.container}>
       <Header name="Perfil"/>
       <ScrollView>
-        {(!user)? <LoadingComponent />
+        {(!user)? <LoadingComponent/>
         :
         <Screen>
             <PersonalInfo Id={user.login} Nome={user.name} Seguidores={user.followers} Seguindo={user.following} />

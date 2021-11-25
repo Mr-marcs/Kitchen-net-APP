@@ -13,7 +13,7 @@ const Feed = (props) => {
   const [page,setPage] = useState(0);
   const [recipe,setRecipe] = useState();
 
-  async function getFeedRecipes() {r
+  async function getFeedRecipes() {
     const token = await AsyncStorage.getItem('token');
     
     const result = await axios.post(base_url + '/feed',{page: page},{
@@ -21,8 +21,8 @@ const Feed = (props) => {
         token: token
       }
     })
-    console.log(result)
-    setRecipe(result[0])
+
+    setRecipe(result.data)
   }
     
     useEffect(()=>{
@@ -34,17 +34,19 @@ const Feed = (props) => {
       <Header name="Feed"/>
       <ScrollView style={style.container}>        
         <Screen>
-          {(!recipe)?
+         {(!recipe)?
           <LoadingComponent />
           :
           (recipe.map(item=>{
-            return (item===null)? null
+            return(
+            (item===null)? null
             :   
             <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
-              Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
-              Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
-              Key={item.Author}/>
-          }))
+             Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
+             Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
+             Key={item.Author} Image={image_url + '/' + item.thumbnail}/>
+            )
+            }))
           }
         </Screen>
       </ScrollView>
@@ -54,7 +56,7 @@ const Feed = (props) => {
 
 const style = StyleSheet.create({
   container:{
-    flex: 1,
+    flex: 0,
   },
 });
 
