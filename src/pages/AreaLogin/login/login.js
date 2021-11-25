@@ -34,7 +34,7 @@ const Login = ({route}) => {
                 login: username,
                 password: password
             })
-            console.log(response.data)
+            
             if(response.data.validated){ 
                 await AsyncStorage.setItem('token',response.data.token)
                 setUsername('');

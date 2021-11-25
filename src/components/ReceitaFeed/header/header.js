@@ -15,15 +15,13 @@ const Header = (props) => {
   const [color,setColor] = useState('#f24333');
   
   useState(()=>{
-      console.log(props.Seguindo)
       setSeguindo(props.Seguindo);
       (seguindo) ? setColor('#818181') : setColor("#f24333");
   },[])
 
   async function handler(){
-      
+    
     const token = await AsyncStorage.getItem('token');
-    console.log(base_url + `/user/unfollow/${props.Key}`);
 
     if(seguindo){
       axios.post(base_url + `/user/unfollow/${props.Key}`,({}),({headers:{token:token}}))
@@ -35,7 +33,6 @@ const Header = (props) => {
       setSeguindo(!seguindo);
     }
   }
-
   return (
     <Layout style={style.container}>
         <Layout style={style.linha1}>
