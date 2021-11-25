@@ -8,12 +8,12 @@ import { useNavigation } from '@react-navigation/core';
 const RecipeList = (props) => {
     const navigation = useNavigation();
     return (
-      <TouchableOpacity onPress={() => navigation.navigate("ListaReceita")} style={style.container}>
-          <Image source={props.source} style={style.containerImage}/>
-          <Layout style={style.areaTexto}>
-              <Text style={style.titulo}>{props.name}</Text>
-          </Layout>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("ListaReceita", { name : props.name, id: props.id, image : props.source})} style={style.container}>
+            <Image source={props.source} style={style.containerImage}/>
+            <Layout style={style.areaTexto}>
+                <Text style={style.titulo}>{props.name}</Text>
+            </Layout>
+        </TouchableOpacity>
     );
 }
 

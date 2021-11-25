@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { StyleSheet, Dimensions, View, Image, TouchableOpacity, TextInput } from 'react-native';
 import { Layout, Text, Toggle } from '@ui-kitten/components';
 import RecipeList from '@components/RecipeListLine/RecipeList/RecipeList';
@@ -8,15 +8,67 @@ import Minhas from '@assets/imgs/minhas.png';
 import Salvos from '@assets/imgs/salvos.png';
 import lul from '@assets/imgs/lul.png';
 import { Overlay } from 'react-native-elements';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import { base_url } from '@src/config/base_url.config';
+import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
 const RecipeListLine = () => {
+    const [listas, setListas] = useState();
+
+    /*const getLists = async() => {
+        const token = await AsyncStorage.getItem('token');
+
+        const result = await axios.get(base_url + '/recipebook')
+        console.log(result)
+        //setListas(result.data);
+    }
+
+    useEffect(() => {
+        getLists();
+        //console.log(listas);
+    });*/
+
+    const Listas = [
+        {
+            name: 'Amei',
+            imagem: Amei,
+            id: 1,
+        },
+        {
+            name: 'Minhas Receitas',
+            imagem: Minhas,
+            id: 2,
+        },
+        {
+            name: 'Salvos',
+            imagem: Salvos,
+            id: 3,
+        },
+        {
+            name: 'Seleção exclusiva dos integrantes do TCC',
+            imagem: lul,
+            id: 4,
+        },
+    ]
+
     return (
         <Layout style={style.container}>
             <CriarListaButton />
-            <RecipeList source={Amei} name="Curtidas"/>
+            {
+                (!Listas) ? <LoadingComponent/> :
+                (
+                    Listas.map(item => {
+                        return (
+                            (item===null) ? null : <RecipeList source={item.imagem} key={item.id} name={item.name}/>
+                        );
+                    })
+                )
+            }
+            {/*<RecipeList source={Amei} name="Curtidas"/>
             <RecipeList source={Minhas} name="Bookmark"/>
             <RecipeList source={Salvos} name="Minhas receitas"/>
-            <RecipeList source={lul} name="Seleção exclusiva dos integrantes do TCC "/>
+            <RecipeList source={lul} name="Seleção exclusiva dos integrantes do TCC "/>*/}
         </Layout>
     );
 }

@@ -7,13 +7,14 @@ import lul from '@assets/imgs/lul.png';
 import Receita from '@components/Receita/Receita';
 import { ScrollView } from 'react-native-gesture-handler';
 
-const ListaReceitas = () => {
+const ListaReceitas = (props) => {
     const navigation = useNavigation();
+    const {id, image, name} = props.params;
     return (
         <Layout>
             <ScrollView>
                 <HeaderSemBuscar name="Lista de receitas"/>
-                <ImageBackground source={lul} style={{height: 220}} blurRadius={5}>
+                <ImageBackground source={image} style={{height: 220}} blurRadius={5}>
                     <View style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', height: 220}}></View>
                 </ImageBackground>
                 <View style={style.flex}>
