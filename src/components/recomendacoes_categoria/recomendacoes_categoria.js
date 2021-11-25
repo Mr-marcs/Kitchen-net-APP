@@ -8,9 +8,9 @@ import { image_url } from '@src/config/base_url.config';
 const RecomendacoesCategoria = (props) => {
     const [categoryImage ,setCategoryImage] = useState('');
     const navigation = useNavigation();
-
+    
     return (
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Categorias', {name: props.name})}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Categorias', {name: props.name, id: props.cod})}>
             <View>
                 <ImageBackground source={{uri: image_url + '/' + props.cod + '.jpg'}} style={style.container} imageStyle={style.imagemfundo}>
                     <View style={style.effects}>
