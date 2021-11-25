@@ -10,6 +10,7 @@ import ListasReceitas from '@components/Perfil/ListasReceitas/ListasREceitas';
 import axios from 'axios';
 import { base_url } from '@src/config/base_url.config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
 const Perfil = (props) => {
   const [user,setUser] = useState();
@@ -23,9 +24,7 @@ const Perfil = (props) => {
       token: token
     }})
 
-    console.log(user)
-
-    setUser(result.data.result.user);
+    setUser(result.data.result.user)
   }
   
   useEffect(()=>{
@@ -37,7 +36,7 @@ const Perfil = (props) => {
     <View style={style.container}>
       <Header name="Perfil"/>
       <ScrollView>
-        {(!user)? <Text>Carregando...</Text>
+        {(!user)? <LoadingComponent/>
         :
         <Screen>
             <PersonalInfo Id={user.login} Nome={user.name} Seguidores={user.followers} Seguindo={user.following} />

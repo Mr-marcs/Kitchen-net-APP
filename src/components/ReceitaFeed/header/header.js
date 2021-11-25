@@ -11,31 +11,29 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const Header = (props) => {
   
   const [url,setUrl] = useState();
-  const [seguindo,setSeguindo] = useState(true);
+  const [seguindo,setSeguindo] = useState(props.Seguindoa);
   const [color,setColor] = useState('#f24333');
   
   useState(()=>{
+      console.log(props.Seguindo)
       setSeguindo(props.Seguindo);
-      (seguindo) ? ('#f24333') : ("#818181")
+      (seguindo) ? setColor('#818181') : setColor("#f24333");
   },[])
 
   async function handler(){
-  /*    
+      
     const token = await AsyncStorage.getItem('token');
-    console.log(base_url + `/users/unfollow/${props.Key}`);
+    console.log(base_url + `/user/unfollow/${props.Key}`);
 
     if(seguindo){
-      axios.post(base_url + `/users/unfollow/${props.Key}`,({}),({headers:{token:token}}))
+      axios.post(base_url + `/user/unfollow/${props.Key}`,({}),({headers:{token:token}}))
       
       setSeguindo(!seguindo)
     }
     else {
-      axios.post(base_url + `/users/follow/${props.Key}`,({}),({headers:{token:token}}))
+      axios.post(base_url + `/user/follow/${props.Key}`,({}),({headers:{token:token}}))
       setSeguindo(!seguindo);
     }
-  */
-    setSeguindo(!seguindo)
-    (seguindo) ? setColor("#f24333"):setColor("#818181");
   }
 
   return (

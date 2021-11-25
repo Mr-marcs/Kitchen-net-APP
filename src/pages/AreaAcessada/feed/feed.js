@@ -21,7 +21,7 @@ const Feed = (props) => {
         token: token
       }
     })
-    console.log(result.data)
+
     setRecipe(result.data)
   }
     

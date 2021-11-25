@@ -4,7 +4,7 @@ import { Layout, Text } from '@ui-kitten/components';
 import Receita from '@components/Receita/Receita';
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {base_url} from '@src/config/base_url.config';
+import {base_url,image_url} from '@src/config/base_url.config';
 import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
 const CarouselPages = (props) => {
@@ -30,7 +30,6 @@ const CarouselPages = (props) => {
             break;
         }
 
-        console.log(recipe)
       }
 
     useEffect(()=>{
@@ -45,7 +44,7 @@ const CarouselPages = (props) => {
             :
             (recipe.map(item=>{
               return(
-                <Receita Nome={item.Name} Autor={item.Author} Date={item.Created_At} like={item.Likes} key={item.Author + '@' + item.Id}/>
+                <Receita RecipeId={item.Id} RecipeAuthor={item.Author} Imagem={image_url + '/' + item.thumbnail} Nome={item.Name} Autor={item.Author_name} Date={item.Created_At} like={item.Likes} key={item.Author + '@' + item.Id}/>
               )
             }))
           }
