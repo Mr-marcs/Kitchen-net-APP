@@ -29,6 +29,7 @@ const Receita = (props) => {
                                     <View style={style.linha2}>
                                         <Text style={style.autorReceita}>By: {props.RecipeAuthor}</Text>
                                     </View>
+                                    
                                 </View>
                                 <View style={style.infoReceita}>
                                     <Text style={style.autorReceita}>{props.Date}</Text>

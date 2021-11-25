@@ -25,7 +25,7 @@ const ReceitaOptions = (props) => {
                 <HeaderGoBack/>
                 <View style={{alignItems: 'center', padding: 20}}>
                     <Image source={{uri:receita.Imagem}} style={{width: 150, height: 150}}/>
-                    <Text style={{fontSize: 20, fontWeight: 'bold', marginTop: 10}}>{receita.Nome}</Text>
+                    <Text style={{fontSize: 20, fontWeight: 'bold', marginTop: 10, textAlign: 'center'}}>{receita.Nome}</Text>
                     <Text>by: {receita.RecipeAuthor}</Text>
                 </View>
                 <TouchableWithoutFeedback onPress={() => alert('lol')}>
