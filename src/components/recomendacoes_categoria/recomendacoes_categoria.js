@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ImageBackground, TouchableWithoutFeedback } fro
 import images from '@assets/categorias/1.jpg'
 import { useNavigation } from '@react-navigation/core';
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
-import {base_url,image_url} from '@src/config/base_url.config';
+import { image_url } from '@src/config/base_url.config';
 
 const RecomendacoesCategoria = (props) => {
     const [categoryImage ,setCategoryImage] = useState('');
