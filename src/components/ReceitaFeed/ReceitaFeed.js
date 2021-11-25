@@ -13,7 +13,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ReceitaFeed = (props) => {
   const navigation = useNavigation();
-  const id = props.Key;
+  const id = props.Autor;
 
   const [imageF,setImage] = useState();
   const [user,setUser] = useState();
@@ -30,11 +30,11 @@ const ReceitaFeed = (props) => {
 
     
   }
-   
+  
   useEffect(()=>{
     GetImage();
   },[])
-
+  console.log(props.Key);
   return (
     <>
     <Header Key={props.Key} Seguindo={user} Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
