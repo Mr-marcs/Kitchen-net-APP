@@ -3,15 +3,16 @@ import { StyleSheet, TouchableHighlight, Dimensions, ImageBackground, Image } fr
 import { Layout, Text } from '@ui-kitten/components';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/core';
+import { image_url } from '@src/config/base_url.config';
 
 
 const RecipeList = (props) => {
     const navigation = useNavigation();
     return (
-        <TouchableOpacity onPress={() => navigation.navigate("ListaReceita", { recipeName : props.Name, recipeId: props.Id, image : props.source, autor: props.Author })} style={style.container}>
-            <Image source={props.source} style={style.containerImage}/>
+        <TouchableOpacity onPress={() => navigation.navigate("ListaReceitas", { recipeName : props.name, recipeId: props.Id, image : props.source, authorLogin: props.authorLogin, authorName: props.authorName, date: props.date, playlistId: props.playlistId })} style={style.container}>
+            <Image source={{uri:image_url + "/" + props.source}} style={style.containerImage}/>
             <Layout style={style.areaTexto}>
-                <Text style={style.titulo}>{props.recipeName}</Text>
+                <Text style={style.titulo}>{props.name}</Text>
             </Layout>
         </TouchableOpacity>
     );

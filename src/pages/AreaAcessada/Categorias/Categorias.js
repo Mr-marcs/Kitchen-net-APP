@@ -32,6 +32,7 @@ const Categorias = ({route, navigation}) => {
           getFeedRecipes();
         },[])
     
+        
     return (
         <Layout style={style.container}>
             <HeaderSemBuscar name={"Categoria " + name}/>

@@ -41,7 +41,7 @@ const Perfil = (props) => {
             <ProgressBar Level={user.level.current_level} Atual={user.level.current_xp} Proximo={user.level.xp_to_next_level}/>
             <ConfigButton />
             <ReceitaCriada />
-            <ListasReceitas />
+            <ListasReceitas Login={user.login} />
         </Screen>
         }
       </ScrollView>
