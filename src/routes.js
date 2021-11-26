@@ -26,7 +26,7 @@ const Stack = createNativeStackNavigator();
 const Routes = () => {
     return (
         <NavigationContainer>
-          <Stack.Navigator initialRouteName="AreaAcessada" screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName="AreaLogin" screenOptions={{headerShown: false}}>
               <Stack.Screen name="AreaLogin" component={AreaLogin}/>
               <Stack.Screen name="AreaAcessada" component={AreaAcessada}/>
           </Stack.Navigator>
