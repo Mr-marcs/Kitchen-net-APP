@@ -33,6 +33,7 @@ const Header = (props) => {
       setSeguindo(!seguindo);
     }
   }
+  //console.log(props.src);
   return (
     <Layout style={style.container}>
         <Layout style={style.linha1}>

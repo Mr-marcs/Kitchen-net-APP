@@ -22,7 +22,7 @@ const Feed = (props) => {
         token: token
       }
     })
-
+    console.log(result.data[0]);
     setRecipe(result.data)
   }
     

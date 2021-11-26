@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ReceitaFeed = (props) => {
   const navigation = useNavigation();
-  const id = props.Autor;
+  const id = props.Key;
 
   
   const [imageF,setImage] = useState();
@@ -23,7 +23,7 @@ const ReceitaFeed = (props) => {
     const token = await AsyncStorage.getItem('token');    
     const response = await axios.get(base_url + `/users/profiles/${id}`,{headers:{token:token}});
     const image = response.data.result.user.image_url;
-    
+    console.log("a");  
     setImage(image);
     setUser(response.data.result.user.AmIFollowing) 
   }
@@ -31,6 +31,7 @@ const ReceitaFeed = (props) => {
   useEffect(()=>{
     GetImage();
   },[])
+  
   return (
     <>
       <Header Key={props.Key} Seguindo={user} Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
