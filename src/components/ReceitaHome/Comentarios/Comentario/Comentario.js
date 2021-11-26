@@ -10,7 +10,7 @@ const Comentario = (props) => {
         <Layout style={style.container}>
             <Avatar source={{uri:props.Imagem}} size="medium"/>
             <Layout style={{marginLeft: 5}}>
-                <Layout style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                <Layout style={{flexDirection: 'row'}}>
                     <Layout>
                         <Text style={{fontWeight: 'bold'}}>{props.Nome}</Text>
                         <Text style={{fontSize: 12}}>{props.Data}</Text>

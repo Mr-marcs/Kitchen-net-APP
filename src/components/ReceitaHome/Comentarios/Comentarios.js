@@ -45,6 +45,7 @@ const Comentarios = (props) => {
                     style={{flex: 1, marginLeft: 10,}}
                 />
             </Layout>
+            <ScrollView>
             {(!comment)? <LoadingComponent/>
             :
             comment.map(item=>{
@@ -53,6 +54,7 @@ const Comentarios = (props) => {
                 )
             })
             }
+            </ScrollView>
         </Layout>
     );
 }

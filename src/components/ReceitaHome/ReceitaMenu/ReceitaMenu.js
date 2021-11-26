@@ -65,6 +65,7 @@ const style = StyleSheet.create({
     },
     dificuldadeText: {
         color: '#fff',
+        fontSize: 14
     },
     dificuldade: {
         flex: 1,
