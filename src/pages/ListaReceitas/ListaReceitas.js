@@ -6,21 +6,22 @@ import HeaderSemBuscar from '@components/HeaderSemBucar/HeaderSemBuscar';
 import lul from '@assets/imgs/lul.png';
 import Receita from '@components/Receita/Receita';
 import { ScrollView } from 'react-native-gesture-handler';
-import { base_url } from '@src/config/base_url.config';
+import { base_url, image_url } from '@src/config/base_url.config';
+import noImage from '@assets/imgs/noimage.jpg';
 
 const ListaReceitas = ({route}) => {
     const navigation = useNavigation();
     const {image, recipeId, recipeName, autor } = route.params;
-
+    
     return (
         <Layout>
             <HeaderSemBuscar name="Lista de receitas"/>
             <ScrollView>
-                <ImageBackground source={{uri:image}} style={{height: 220}} blurRadius={5}>
+                <ImageBackground source={noImage} style={{height: 220}} blurRadius={5}>
                     <View style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', height: 220}}></View>
                 </ImageBackground>
                 <View style={style.flex}>
-                    <ImageBackground source={image} style={style.mainImage}></ImageBackground>
+                    <ImageBackground source={noImage} style={style.mainImage}></ImageBackground>
                 </View>
                 <View style={{alignItems: 'center'}}>
                     <View style={style.tituloContainer}>
@@ -32,13 +33,13 @@ const ListaReceitas = ({route}) => {
                     <Text style={{fontSize: 12,}}>Criado em: 03/03/2021</Text>
                 </View>
                 <View style={{padding: 20, paddingBottom: 120 }}>
-                    {
+                    {/*
                         receitas.map(item => {
                             return(
                                 <Receita key={item.Id} Imagem={item.thumbnail} Nome={item.Name} RecipeAuthor={item.Author} like={item.Likes} Date={item.Created_At} />
                             );
                         })
-                    }
+                    */}
                 </View>
             </ScrollView>
         </Layout>
