@@ -7,16 +7,16 @@ import RecipeListLine from '@components/RecipeListLine/RecipeListLine';
 
 const Receita = () => {
     return (
-        <View style={style.container}>
+        <Layout style={style.container}>
             <Header name="Lista de receitas"/>
-            <ScrollView >
-                <Screen>
-                    <Layout>
+            <Layout>
+                <ScrollView >
+                    <Screen>
                         <RecipeListLine />
-                    </Layout>
-                </Screen>
-            </ScrollView>
-        </View>
+                    </Screen>
+                </ScrollView>
+            </Layout>
+        </Layout>
     );
 }
 

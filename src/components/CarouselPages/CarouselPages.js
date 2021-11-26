@@ -11,7 +11,7 @@ const CarouselPages = (props) => {
 
     const [recipe ,setRecipe] = useState();
     const index = props.Index    
-    async function GetRecipes(carrosel_index) {
+    /*async function GetRecipes(carrosel_index) {
 
         const token = await AsyncStorage.getItem('token');
         
@@ -34,8 +34,8 @@ const CarouselPages = (props) => {
 
     useEffect(()=>{
         GetRecipes(index);
-    },[])
-    /*const recipes = [
+    },[])*/
+    const recipes = [
       {
         Id: 1,
         Author: 'Henrique Yamada2',
@@ -60,7 +60,7 @@ const CarouselPages = (props) => {
         Created_At: '31/04/2021',
         Likes: 15,
       },
-    ]*/
+    ]
 
     return (
       <Layout style={style.container}>
