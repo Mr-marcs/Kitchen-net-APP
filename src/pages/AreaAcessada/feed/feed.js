@@ -7,6 +7,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {base_url, image_url} from '@src/config/base_url.config';
 import LoadingComponent from '@components/Loading/Component/LoadingComponent';
+import { Layout } from '@ui-kitten/components';
 
 const Feed = (props) => {
   
@@ -32,12 +33,10 @@ const Feed = (props) => {
   return (
     <View>
       <Header name="Feed"/>
-      <View style={style.container}>
+      <Layout style={style.container}>
         <ScrollView>        
           <Screen>
-          {(!recipe)?
-            <LoadingComponent />
-            :
+            {(!recipe)? <LoadingComponent /> :
             (recipe.map(item=>{
               return(
               (item===null)? null
@@ -51,7 +50,7 @@ const Feed = (props) => {
             }
           </Screen>
         </ScrollView>
-      </View>
+      </Layout>
     </View>
   );
 }
@@ -59,6 +58,8 @@ const Feed = (props) => {
 const style = StyleSheet.create({
   container:{
     flex: 0,
+    marginBottom: 120,
+    paddingBottom: 120,
     marginBottom: 120,
   },
 });
