@@ -18,8 +18,7 @@ const Descricao = (props) => {
             })
             }        
             <Text style={style.titulo}>Etapas: </Text>
-            <Etapa />
-        
+            <Etapa Etapa={props.Etapa}/>
         </Layout>
     );
 }
