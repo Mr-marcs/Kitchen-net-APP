@@ -5,13 +5,15 @@ import { useNavigation } from '@react-navigation/core';
 import Icon from 'react-native-vector-icons/Ionicons';
 import Icon2 from 'react-native-vector-icons/Entypo';
 import Hat from '@assets/svg/hat.svg';
+import { image_url } from '@src/config/base_url.config';
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
 
-const Header = () => {
+const Header = (props) => {
     const navigation = useNavigation();
+    console.log(props)  
     return (
       <View  style={style.container}>
-        <Image source={imagencategoria} style={style.image}/>
+        <Image source={{uri: props.Imagem}} style={style.image}/>
         <View style={style.header}>
             <View style={style.highlight}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
@@ -25,7 +27,7 @@ const Header = () => {
         <View style={style.linha2}>
             <View style={style.flex}>
                 <Hat width={60} height={60}/>
-                <Text style={style.porcao}>1 Porção</Text>   
+                <Text style={style.porcao}>{props.Porcao} {(props.Porcao > 1)? "Porções": "Porção"}</Text>   
             </View>
         </View>
       </View>

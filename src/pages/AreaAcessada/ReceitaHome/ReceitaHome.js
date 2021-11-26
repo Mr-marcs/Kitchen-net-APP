@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { StyleSheet, Image, TouchableOpacity, Platform, StatusBar, ScrollView, View, TouchableHighlight } from 'react-native';
 import { Layout, Tab, TabView, Text } from '@ui-kitten/components';
 import Header from '@components/ReceitaHome/Header/Header';
@@ -6,24 +6,54 @@ import ReceitaMenu from '@components/ReceitaHome/ReceitaMenu/ReceitaMenu';
 import Descricao from '@components/ReceitaHome/Descricao/Descricao';
 import { useNavigation } from '@react-navigation/core';
 import Comentarios from '@components/ReceitaHome/Comentarios/Comentarios';
+import axios from 'axios';
+import { base_url, image_url } from '@src/config/base_url.config';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
-const ReceitaHome = () => {
+const ReceitaHome = ({route}) => {
     const navigation = useNavigation();
+    
+    const recipe = route.params.props;
+
+    const [recipeInfo, setRecipeInfo] = useState();
+
+    async function GetRecipe(){
+        const token = await AsyncStorage.getItem('token');
+        
+        const result = await axios.post(base_url + `/recipe/${recipe.RecipeId}`,{author: recipe.RecipeAuthor,amount:0},
+        {
+            headers: {
+                token:token
+            }
+        })
+
+        setRecipeInfo(result.data.recipe)
+        console.log(result.data.recipe.Is_liked);
+    }
+
+    useEffect(()=>{
+        GetRecipe();
+    },[])
+
     const [selectedIndex, setSelectedIndex] = useState(0);
     return (
         <View style={style.container}>
+            {(!recipeInfo)? <LoadingComponent/>
+            :
+            <>
             <ScrollView>
-                <Header />
-                <ReceitaMenu />
+                <Header IdDificuldade={recipeInfo.Difficulty.Id} Imagem={recipe.Imagem} Porcao={recipeInfo.Portions}/>
+                <ReceitaMenu Descricao={recipeInfo.Description} Nome={recipeInfo.Name} Dificuldade={recipeInfo.Difficulty.Name} Laikado={recipeInfo.Is_liked} Likes={recipe.like}/>
                 <TabView
                     selectedIndex={selectedIndex}
                     onSelect={index => setSelectedIndex(index)}
                 >
                     <Tab title="Descrição">
-                        <Descricao />
+                        <Descricao Igredientes={recipeInfo.Igredients}/>
                     </Tab>
                     <Tab title="Comentários">
-                        <Comentarios />
+                        <Comentarios IdReceita={recipe.RecipeId} Login={recipe.RecipeAuthor}/>
                     </Tab>
                 </TabView>
             </ScrollView>
@@ -32,6 +62,7 @@ const ReceitaHome = () => {
                     <Text style={style.comecarTexto}>Começar</Text>
                 </TouchableOpacity>
             </Layout>
+            </>}
         </View>
     );
 }

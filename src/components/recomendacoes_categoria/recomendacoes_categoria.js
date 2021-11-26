@@ -10,9 +10,9 @@ const RecomendacoesCategoria = (props) => {
     const navigation = useNavigation();
     
     return (
-        <TouchableWithoutFeedback onPress={() => navigation.navigate('Categorias', {name: props.name})}>
+        <TouchableWithoutFeedback onPress={() => navigation.navigate('Categorias', {name: props.name, id: props.cod})}>
             <View>
-                <ImageBackground source={{uri:image_url + '/' + props.cod + '.jpg'}} style={style.container} imageStyle={style.imagemfundo}>
+                <ImageBackground source={{uri: image_url + '/' + props.cod + '.jpg'}} style={style.container} imageStyle={style.imagemfundo}>
                     <View style={style.effects}>
                         <Text style={style.titulo}>{props.name}</Text>
                     </View>

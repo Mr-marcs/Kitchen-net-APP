@@ -9,10 +9,10 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 const Receita = (props) => {
     const navigation = useNavigation();
-
+    const coisa = {props}
     return (
         <View style={style.container}>
-            <TouchableWithoutFeedback  onPress={() => navigation.navigate("ReceitaHome",{id:props.Id,author:props.RecipeAuthor})}>
+            <TouchableWithoutFeedback  onPress={() => navigation.navigate("ReceitaHome",{props})}>
                 <View>
                     <ImageBackground source={{uri:props.Imagem}} style={style.container} imageStyle={style.imagemfundo}>
                         <Layout style={style.effects}>

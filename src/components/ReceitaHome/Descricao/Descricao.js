@@ -2,17 +2,24 @@ import React, {useState} from 'react';
 import { StyleSheet, Image, TouchableOpacity, Platform, StatusBar, ScrollView, View, TouchableHighlight } from 'react-native';
 import { Layout, Tab, TabView, Text } from '@ui-kitten/components';
 import Etapa from '@components/AdicionarReceita/Etapas/Etapa/Etapa';
+import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
-const Descricao = () => {
+const Descricao = (props) => {
+    
     return (
         <Layout  style={style.container}>
-            <Text style={style.titulo}>Ingredientes:</Text>
-            <Text style={style.Ingrediente}>1,5kg Carne moída</Text>
-            <Text style={style.Ingrediente}>Óleo de cozinha</Text>
-            <Text style={style.titulo}>Etapas:</Text>
+            <Text style={style.titulo}>Igredientes: </Text>
+            {(!props.Igredientes)? <LoadingComponent/>
+            :
+            props.Igredientes.map(item=>{
+                return(
+                    <Text style={style.Ingrediente}>•   {item.Name}</Text>
+                )
+            })
+            }        
+            <Text style={style.titulo}>Etapas: </Text>
             <Etapa />
-            <Etapa />
-            <Etapa />
+        
         </Layout>
     );
 }
@@ -25,7 +32,7 @@ const style = StyleSheet.create({
     titulo:{
         fontSize: 18,
         fontWeight: 'bold',
-        marginTop: 10,
+        marginTop: 15,
     },
     Ingrediente: {
         marginTop: 10,

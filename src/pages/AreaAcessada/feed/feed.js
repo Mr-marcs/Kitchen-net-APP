@@ -42,9 +42,9 @@ const Feed = (props) => {
               (item===null)? null
               :   
               <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
-                Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
-                Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
-                Key={item.Author} Image={image_url + '/' + item.thumbnail}/>
+              Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
+              Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
+              Key={item.Author} Image={image_url + '/' + item.thumbnail}/>
               )
               }))
             }
@@ -58,7 +58,7 @@ const Feed = (props) => {
 const style = StyleSheet.create({
   container:{
     flex: 0,
-    marginBottom: 120,
+    paddingBottom: 120,
   },
 });
 
