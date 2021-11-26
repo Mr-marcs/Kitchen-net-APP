@@ -7,10 +7,10 @@ import lul from '@assets/imgs/lul.png';
 import Receita from '@components/Receita/Receita';
 import { ScrollView } from 'react-native-gesture-handler';
 import axios from 'axios';
-import { base_url,image_url } from '@src/config/base_url.config';
+import { base_url, image_url } from '@src/config/base_url.config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoadingComponent from '@components/Loading/Component/LoadingComponent';
-
+import noImage from '@assets/imgs/noimage.jpg';
 
 const ListaReceitas = ({route}) => {
     const [recipes, setRecipes] = useState();
