@@ -6,16 +6,17 @@ import HeaderSemBuscar from '@components/HeaderSemBucar/HeaderSemBuscar';
 import lul from '@assets/imgs/lul.png';
 import Receita from '@components/Receita/Receita';
 import { ScrollView } from 'react-native-gesture-handler';
+import { base_url } from '@src/config/base_url.config';
 
 const ListaReceitas = ({route}) => {
     const navigation = useNavigation();
-    const {image, recipeId, recipeName, autor, receitas} = route.params;
-    
+    const {image, recipeId, recipeName, autor } = route.params;
+
     return (
         <Layout>
             <HeaderSemBuscar name="Lista de receitas"/>
             <ScrollView>
-                <ImageBackground source={image} style={{height: 220}} blurRadius={5}>
+                <ImageBackground source={{uri:image}} style={{height: 220}} blurRadius={5}>
                     <View style={{backgroundColor: 'rgba(0, 0, 0, 0.5)', height: 220}}></View>
                 </ImageBackground>
                 <View style={style.flex}>

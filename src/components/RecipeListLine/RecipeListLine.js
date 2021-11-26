@@ -10,25 +10,28 @@ import lul from '@assets/imgs/lul.png';
 import { Overlay } from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { base_url } from '@src/config/base_url.config';
 import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
 const RecipeListLine = () => {
     const [listas, setListas] = useState();
 
-    /*const getLists = async() => {
+    const getLists = async() => {
         const token = await AsyncStorage.getItem('token');
-
-        const result = await axios.get(base_url + '/recipebook')
-        console.log(result)
-        //setListas(result.data);
+        
+        const result = await axios.post(base_url + '/recipebook', {page: 0},
+        { 
+            headers: {
+                token: token,
+            }
+        })
+        setListas(result.data);
     }
 
     useEffect(() => {
         getLists();
-        //console.log(listas);
-    });*/
-    const recipes = [
+    });
+
+    /*const recipes = [
         {
             Id: 1,
             Author: 'Henrique Yamada2',
@@ -87,25 +90,25 @@ const RecipeListLine = () => {
             date: '13/04/2021',
             receitas: recipes,
         },
-    ]
+    ]*/
     
     return (
         <Layout style={style.container}>
             <CriarListaButton />
             {
-                (!Listas) ? <LoadingComponent/> :
+                (!listas) ? <LoadingComponent/> :
                 (
-                    Listas.map(item => {
-                        
+                    listas.map(item => {
+                        console.log(item)
                         return (
                             (item===null) ? null : 
                             <RecipeList 
                                 source={item.imagem} 
-                                key={item.id} 
-                                recipeName={item.recipeName} 
-                                recipeId={item.id}
-                                autor={item.autor}
-                                receitas={item.receitas}
+                                key={item.Id} 
+                                recipeName={item.Name} 
+                                recipeId={item.Id}
+                                autor={item.AuthorName}
+                                image={item.Thumbnail}
                             />
                         );
                     })
