@@ -4,7 +4,7 @@ import { StyleSheet, ImageBackground, TouchableOpacity, Image, View, TouchableWi
 import { Layout, Text } from '@ui-kitten/components';
 const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-content/uploads/2019/04/Que-comida-saud%C3%A1vel-que-nada-brasileiro-gosta-de-fast-food-1024x683.jpg'};
 import Icon2 from 'react-native-vector-icons/AntDesign';
-import { image_url } from '@src/config/base_url.config';
+
 import Icon from 'react-native-vector-icons/Entypo';
 
 const Receita = (props) => {

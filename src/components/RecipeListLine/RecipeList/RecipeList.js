@@ -8,10 +8,10 @@ import { useNavigation } from '@react-navigation/core';
 const RecipeList = (props) => {
     const navigation = useNavigation();
     return (
-        <TouchableOpacity onPress={() => navigation.navigate("ListaReceita", { name : props.name, id: props.id, image : props.source})} style={style.container}>
+        <TouchableOpacity onPress={() => navigation.navigate("ListaReceita", { recipeName : props.recipeName, recipeId: props.recipeId, image : props.source, autor: props.autor, receitas: props.receitas})} style={style.container}>
             <Image source={props.source} style={style.containerImage}/>
             <Layout style={style.areaTexto}>
-                <Text style={style.titulo}>{props.name}</Text>
+                <Text style={style.titulo}>{props.recipeName}</Text>
             </Layout>
         </TouchableOpacity>
     );
