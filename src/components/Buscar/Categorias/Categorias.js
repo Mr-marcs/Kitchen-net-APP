@@ -4,13 +4,16 @@ import { StyleSheet, TextInput, View, TouchableOpacity, Platform, StatusBar } fr
 import { Layout, Text } from '@ui-kitten/components';
 const numCategorias = [
     {
-        "name":"receita1",
+        name:"receita1",
+        imagem: "https://img.itdg.com.br/tdg/images/recipes/000/309/769/347965/347965_original.jpg?mode=crop&width=360&height=200",
     },
     {
-        "name":"receita2",
+        name:"receita2",
+        imagem: "https://t1.rg.ltmcdn.com/pt/images/3/5/1/sobremesa_rapida_e_facil_com_leite_condensado_e_creme_de_leite_9153_600.jpg",
     },
     {
-        "name":"receita3",
+        name:"receita3",
+        imagem: "https://s02.video.glbimg.com/x240/9869117.jpg",
     },
 ];
 import Categoria from '@components/Buscar/Categorias/Categoria/Categoria';
@@ -18,17 +21,13 @@ import Categoria from '@components/Buscar/Categorias/Categoria/Categoria';
 const Categorias = () => {
     const navigation = useNavigation();
 
-    const _categorias = () => {
-
-    }
-
     return (
         <View style={style.container}>
             <Text style={style.titulo}>Categorias:</Text>
             <View style={{flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between'}}>
                 {
                     numCategorias.map((item, index) => 
-                        <Categoria key={index} name={item.name}/>
+                        <Categoria key={index} name={item.name} imagem={item.imagem}/>
                     )
                 }
             </View>

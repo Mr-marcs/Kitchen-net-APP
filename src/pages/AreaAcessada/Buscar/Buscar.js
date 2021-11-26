@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { StyleSheet, View, ScrollView, StatusBar, TouchableOpacity, TextInput } from 'react-native';
 import { Text, Avatar } from '@ui-kitten/components';
 import { useNavigation } from '@react-navigation/core';
@@ -9,46 +9,39 @@ import Tabs from '@components/Buscar/Carrosel/Carrosel';
 
 const Buscar = () => {
     const navigation = useNavigation();
-    const [pesquisa, setPesquisa] = useState('');
-    const [isPesquisando, setIsPesquisando] = useState(false);
-    
-    const Pesquisando = () => {
-        setIsPesquisando(true)}
-    ;
+    const [pesquisa, setPesquisa] = useState('')
+    /*
+    const [isCategoria, setIsCategoria] = useState(true);
+    useEffect(() => {
+        const delayDebounceFn = setTimeout(() => {
+            if(pesquisa.length > 0){
+                setIsCategoria(false)
+            }
+            else{
+                setIsCategoria(true)
+            }
+        }, 1000)
+        return () => clearTimeout(delayDebounceFn)
+    }, [pesquisa]);
 
-    const Clear = () => {
-        setPesquisa('');
-        setIsPesquisando(false);
-    }
-
-    const ClearButton = () => {
-        if(isPesquisando){
+    function EventArea() {
+        if(!isCategoria){
             return(
-                <TouchableOpacity onPress={() => Clear()} style={{width: 24}}>
-                    <Icon2 name="x" size={24} color="#fff"/>
-                </TouchableOpacity>
+                <Tabs />
             );
         }
         else{
-            return(null);
-        }
-    }
-
-    const EventArea = () => {
-        if(!isPesquisando){
-            return(
+            return (
                 <ScrollView>
                     <Categorias />
                 </ScrollView>
             );
         }
-        else{
-            return (
-                <Tabs />
-            );
-        }
     }
-
+    */
+   const pesquisar = (props) => {
+       setPesquisa(props);
+   }
     return (
         <View style={style.container}>
             <View style={style.header}>
@@ -58,20 +51,16 @@ const Buscar = () => {
                     </TouchableOpacity>
                 </View>
                 <View style={style.item2}>
-                    <TextInput 
+                    <TextInput
+                        autoFocus
                         style={style.search} 
                         value={pesquisa} 
-                        onChangeText={(nextValue) => {
-                            setPesquisa(nextValue);
-                        }} 
-                        onSubmitEditing={() => Pesquisando()}
+                        onChangeText={pesquisar} 
                     />
                 </View>
-                <View style={style.item1}>
-                    <ClearButton />
-                </View>
             </View>
-            <EventArea />
+            <Text>{pesquisa}</Text>
+            {/*<EventArea />*/}
         </View>
     );
 }

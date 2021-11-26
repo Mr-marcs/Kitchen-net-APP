@@ -9,7 +9,7 @@ const Categoria = (props) => {
     return (
         <TouchableWithoutFeedback onPress={() => navigation.navigate("Categorias", {name: props.name})}>
             <View>
-                <ImageBackground source={imagencategoria} style={style.container} imageStyle={style.imagemfundo}>
+                <ImageBackground source={{uri:props.imagem}} style={style.container} imageStyle={style.imagemfundo}>
                     <View style={style.effects}>
                         <Text style={style.titulo}>{props.name}</Text>
                     </View>
