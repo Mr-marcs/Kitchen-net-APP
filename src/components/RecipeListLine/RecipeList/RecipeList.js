@@ -15,7 +15,7 @@ const RecipeList = (props) => {
         <TouchableOpacity onPress={() => navigation.navigate("ListaReceita", { recipeName : props.Name, recipeId: props.Id, image : props.source, autor: props.Author })} style={style.container}>
             <Image source={noImage} style={style.containerImage}/>
             <Layout style={style.areaTexto}>
-                <Text style={style.titulo}>{props.recipeName}</Text>
+                <Text style={style.titulo}>{props.name}</Text>
             </Layout>
         </TouchableOpacity>
     );

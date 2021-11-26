@@ -55,7 +55,7 @@ const AreaAcessada = () => {
       <Stack.Screen name="MudarSenha" component={MudarSenha}/>
       <Stack.Screen name="AdicionarEtapa" component={AdicionarEtapa}/>
       <Stack.Screen name="ReceitaHome" component={ReceitaHome}/>
-      <Stack.Screen name="ListaReceita" component={ListaReceitas}/>
+      <Stack.Screen name="ListaReceitas" component={ListaReceitas}/>
       <Stack.Screen name="Etapa" component={Etapa}/>
       <Stack.Screen name="EtapaFinal" component={EtapaFinal}/>
       <Stack.Screen name="Buscar" component={Buscar}/>
