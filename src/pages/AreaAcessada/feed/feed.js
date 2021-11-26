@@ -58,9 +58,7 @@ const Feed = (props) => {
 const style = StyleSheet.create({
   container:{
     flex: 0,
-    marginBottom: 120,
     paddingBottom: 120,
-    marginBottom: 120,
   },
 });
 
