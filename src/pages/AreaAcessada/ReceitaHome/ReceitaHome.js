@@ -53,7 +53,7 @@ const ReceitaHome = ({route}) => {
                         <Descricao Igredientes={recipeInfo.Igredients}/>
                     </Tab>
                     <Tab title="Comentários">
-                        <Comentarios />
+                        <Comentarios IdReceita={recipe.RecipeId} Login={recipe.RecipeAuthor}/>
                     </Tab>
                 </TabView>
             </ScrollView>
