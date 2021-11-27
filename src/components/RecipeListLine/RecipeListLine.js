@@ -41,11 +41,7 @@ const RecipeListLine = () => {
                         return (
                             (item===null) ? null : 
                             <RecipeList 
-                                source={item.Thumbnail} 
-                                key={item.Id} 
-                                recipeName={item.Name} 
-                                recipeId={item.Id}
-                                autor={item.AuthorName}
+                            playlistId = {item.Id} source={item.Thumbnail} name={item.Name} authorLogin={item.Author} authorName={item.AuthorName} date={item.Creation_date}
                             />
                         );
                     })
