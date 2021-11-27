@@ -23,7 +23,7 @@ const ReceitaCriada = () => {
 
     async function Merge(){
         setPage(page+1)
-        
+
     }
 
     useEffect(()=>{
