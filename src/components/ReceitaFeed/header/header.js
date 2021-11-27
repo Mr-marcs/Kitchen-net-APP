@@ -7,13 +7,14 @@ import {base_url} from '@src/config/base_url.config';
 import axios from 'axios';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/core';
 
 const Header = (props) => {
   
   const [url,setUrl] = useState();
   const [seguindo,setSeguindo] = useState(props.Seguindoa);
   const [color,setColor] = useState('#f24333');
-  
+    
   useState(()=>{
       setSeguindo(props.Seguindo);
       (seguindo) ? setColor('#818181') : setColor("#f24333");
@@ -26,11 +27,11 @@ const Header = (props) => {
     if(seguindo){
       axios.post(base_url + `/user/unfollow/${props.Key}`,({}),({headers:{token:token}}))
       
-      setSeguindo(!seguindo)
+      setSeguindo(false)
     }
     else {
       axios.post(base_url + `/user/follow/${props.Key}`,({}),({headers:{token:token}}))
-      setSeguindo(!seguindo);
+      setSeguindo(true);
     }
   }
   //console.log(props.src);

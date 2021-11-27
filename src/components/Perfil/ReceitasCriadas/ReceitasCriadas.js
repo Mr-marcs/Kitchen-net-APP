@@ -6,17 +6,24 @@ import axios from 'axios';
 import { base_url,image_url } from '@src/config/base_url.config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoadingComponent from '@components/Loading/Component/LoadingComponent';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const ReceitaCriada = () => {
     
     const [recipes, setRecipes] = useState();
     const [page,setPage] = useState(0);
+    const [show,setShow] = useState(true);
 
     async function GetRecipe(){
         const token = await AsyncStorage.getItem('token');
         const result = await axios.post(base_url + '/myrecipes',{page:page},{headers: {token}}); 
     
         setRecipes(result.data)
+    }
+
+    async function Merge(){
+        setPage(page+1)
+        
     }
 
     useEffect(()=>{
@@ -37,8 +44,9 @@ const ReceitaCriada = () => {
               )
           })
           }
-          
-          <Text style={style.verMais}>Ver mais</Text>
+          <TouchableOpacity style={{display:(show)?"flex:":"none"}}>
+            <Text style={style.verMais}>Ver mais</Text>
+          </TouchableOpacity>
       </Layout>
     );
 }
