@@ -16,8 +16,8 @@ const ListaReceitas = ({route}) => {
     const [recipes, setRecipes] = useState();
     const [page,setPage] = useState(0);
     const navigation = useNavigation();
-    const {image, recipeId, recipeName, authorLogin, authorName, date, playlistId} = route.params;
-    console.log(route.params);
+    const {image, name, authorLogin, authorName, date, playlistId} = route.params;
+    //console.log(route.params);
 
     async function GetRecipe(){
         const token = await AsyncStorage.getItem('token');
@@ -41,7 +41,7 @@ const ListaReceitas = ({route}) => {
                 </View>
                 <View style={{alignItems: 'center'}}>
                     <View style={style.tituloContainer}>
-                        <Text style={style.titulo}>{recipeName}</Text>
+                        <Text style={style.titulo}>{name}</Text>
                     </View>
                 </View>
                 <Text style={{textAlign: 'center', marginTop: 10,}}>Criado por: {authorName}</Text>

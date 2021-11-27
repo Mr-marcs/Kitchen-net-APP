@@ -5,10 +5,10 @@ import Header from '@components/header/header';
 import { Layout, Text } from '@ui-kitten/components';
 import RecipeListLine from '@components/RecipeListLine/RecipeListLine';
 
-const Receita = () => {
+const Receita = (props) => {
     return (
         <Layout style={style.container}>
-            <Header name="Lista de receitas"/>
+            <Header name="Livro de receitas"/>
             <Layout>
                 <ScrollView >
                     <Screen>

@@ -48,7 +48,9 @@ const Categorias = ({route, navigation}) => {
                             <ReceitaFeed Autor={item.Author_name} Data={item.Created_At} Titulo={item.Name} 
                             Etapas={item.Stepes.length} Dificuldade={item.Difficulty.Name} Likes={item.Likes} 
                             Comment={item.Comments_Amount} NumeroPorcao={item.Portions} Laikado={item.Is_liked}
-                            Key={item.Author} Image={image_url + '/' + item.thumbnail}/>
+                            Key={item.Author} Image={image_url + '/' + item.thumbnail} RecipeId={item.Id} RecipeAuthor={item.Author} Imagem={image_url + '/' + item.thumbnail} 
+                            Nome={item.Name} 
+                            Autor={item.Author_name} Date={item.Created_At} like={item.Likes} key={item.Author + '@' + item.Id}/>
                         )
                     }))
                     }       

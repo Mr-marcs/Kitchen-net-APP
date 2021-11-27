@@ -7,13 +7,11 @@ import { image_url } from '@src/config/base_url.config';
 import noImage from '@assets/imgs/noimage.jpg';
 
 const RecipeList = (props) => {
-    const navigation = useNavigation();
+    const navigation = useNavigation();    
     
-    const Imagem = props.source == "" ? noImage : props.source;
-
     return (
-        <TouchableOpacity onPress={() => navigation.navigate("ListaReceita", { recipeName : props.Name, recipeId: props.Id, image : props.source, autor: props.Author })} style={style.container}>
-            <Image source={noImage} style={style.containerImage}/>
+        <TouchableOpacity onPress={() => navigation.navigate("ListaReceitas", {image: props.source, name: props.name, authorLogin: props.authorLogin, authorName: props.authorName, date: props.date, playlistId: props.playlistId})} style={style.container}>
+            <Image source={{uri:image_url + "/" + props.source}} style={style.containerImage}/>
             <Layout style={style.areaTexto}>
                 <Text style={style.titulo}>{props.name}</Text>
             </Layout>

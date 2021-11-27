@@ -13,20 +13,21 @@ import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
 const ReceitaHome = ({route}) => {
     const navigation = useNavigation();
-    const recipe = route.params;
+    const recipe = route.params.props;
     
     const [recipeInfo, setRecipeInfo] = useState();
 
     async function GetRecipe(){
         const token = await AsyncStorage.getItem('token');
-        console.log(token)
+        //console.log(token)
+        
         const result = await axios.post(base_url + `/recipe/${recipe.RecipeId}`,{author: recipe.RecipeAuthor,amount:0},
         {
             headers: {
                 token:token
             }
         })
-        console.log(result)
+        //console.log(result.data)
         setRecipeInfo(result.data.recipe)
     }
 

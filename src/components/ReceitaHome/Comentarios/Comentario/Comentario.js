@@ -5,7 +5,7 @@ import pfp from '@assets/imgs/pfp.jpg';
 import Icon2 from 'react-native-vector-icons/Entypo';
 
 const Comentario = (props) => {
-        console.log(props)
+        //console.log(props)
     return (
         <Layout style={style.container}>
             <Avatar source={{uri:props.Imagem}} size="medium"/>
