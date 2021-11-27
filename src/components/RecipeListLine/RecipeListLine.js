@@ -11,7 +11,7 @@ import { Overlay } from 'react-native-elements';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
 import LoadingComponent from '@components/Loading/Component/LoadingComponent';
-
+import { base_url } from '@src/config/base_url.config';
 const RecipeListLine = () => {
     const [listas, setListas] = useState();
 
@@ -29,7 +29,7 @@ const RecipeListLine = () => {
 
     useEffect(() => {
         getLists();
-    });
+    },[]);
 
     /*const recipes = [
         {
@@ -109,6 +109,7 @@ const RecipeListLine = () => {
                                 recipeId={item.Id}
                                 autor={item.AuthorName}
                                 image={item.Thumbnail}
+                                name={item.Name}
                             />
                         );
                     })

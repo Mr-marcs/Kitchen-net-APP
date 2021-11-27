@@ -17,12 +17,11 @@ const ListaReceitas = ({route}) => {
     const [page,setPage] = useState(0);
     const navigation = useNavigation();
     const {image, recipeId, recipeName, authorLogin, authorName, date, playlistId} = route.params;
-    //console.log(route.params);
+    console.log(route.params);
 
     async function GetRecipe(){
         const token = await AsyncStorage.getItem('token');
-        const result = await axios.post(base_url + '/playlist/recipes',{PlaylistId:playlistId, PlaylistAuthor:authorLogin ,page:page},{headers: {token}}); 
-    
+        const result = await axios.post(base_url + '/playlist/recipes',{PlaylistId:playlistId, PlaylistAuthor:authorLogin ,page:page},{headers: {token: token}}); 
         setRecipes(result.data)
     }
 
