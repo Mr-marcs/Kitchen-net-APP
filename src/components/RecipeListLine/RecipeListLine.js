@@ -31,67 +31,6 @@ const RecipeListLine = () => {
         getLists();
     },[]);
 
-    /*const recipes = [
-        {
-            Id: 1,
-            Author: 'Henrique Yamada2',
-            thumbnail: 'https://pipe.miroware.io/60a47afdab37f801c2e52bb1/TCC/Receitas/receita1.jpg',
-            Name: 'Pão de queijo',
-            Created_At: '30/04/2021',
-            Likes: 21,
-        },
-        {
-            Id: 2,
-            Author: 'Henrique Yamada3',
-            thumbnail: 'https://pipe.miroware.io/60a47afdab37f801c2e52bb1/TCC/Receitas/receita2.jpg',
-            Name: 'Pudim',
-            Created_At: '30/04/2021',
-            Likes: 25,
-        },
-        {
-            Id: 3,
-            Author: 'Henrique Yamada1',
-            thumbnail: 'https://pipe.miroware.io/60a47afdab37f801c2e52bb1/TCC/Receitas/receita3.jpg',
-            Name: 'Coxinha',
-            Created_At: '31/04/2021',
-            Likes: 15,
-        },
-    ]
-    const Listas = [
-        {
-            recipeName: 'Amei',
-            imagem: Amei,
-            id: 1,
-            autor: 'Henrique 1',
-            date: '13/04/2021',
-            receitas: recipes,
-        },
-        {
-            recipeName: 'Minhas Receitas',
-            imagem: Minhas,
-            id: 2,
-            autor: 'Henrique 2',
-            date: '13/04/2021',
-            receitas: recipes,
-        },
-        {
-            recipeName: 'Salvos',
-            imagem: Salvos,
-            id: 3,
-            autor: 'Henrique 3',
-            date: '13/04/2021',
-            receitas: recipes,
-        },
-        {
-            recipeName: 'Seleção exclusiva dos integrantes do TCC',
-            imagem: lul,
-            id: 4,
-            autor: 'Henrique 4',
-            date: '13/04/2021',
-            receitas: recipes,
-        },
-    ]*/
-    
     return (
         <Layout style={style.container}>
             <CriarListaButton />
@@ -99,17 +38,14 @@ const RecipeListLine = () => {
                 (!listas) ? <LoadingComponent/> :
                 (
                     listas.map(item => {
-                        console.log(item)
                         return (
                             (item===null) ? null : 
                             <RecipeList 
-                                source={item.imagem} 
+                                source={item.Thumbnail} 
                                 key={item.Id} 
                                 recipeName={item.Name} 
                                 recipeId={item.Id}
                                 autor={item.AuthorName}
-                                image={item.Thumbnail}
-                                name={item.Name}
                             />
                         );
                     })

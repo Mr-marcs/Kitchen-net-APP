@@ -35,9 +35,9 @@ const ReceitaFeed = (props) => {
   return (
     <>
       <Header Key={props.Key} Seguindo={user} Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
-      <TouchableOpacity onPress={() => navigation.navigate("ReceitaHome")} style={style.container}> 
-        <ImageRecipe Image={props.Image}/>
-      </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("ReceitaHome", { RecipeId: props.Key, RecipeAuthor: props.Autor,  })} style={style.container}> 
+          <ImageRecipe Image={props.Image}/>
+        </TouchableOpacity>
       <RecipeInfo Titulo={props.Titulo} NumeroEtapas={props.Etapas} Laikado={props.Laikado} Dificuldade={props.Dificuldade} NumeroPorcao={props.NumeroPorcao} Like={props.Likes} Comment={props.Comment} />
     </>
   );
