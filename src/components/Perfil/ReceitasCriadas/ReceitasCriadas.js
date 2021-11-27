@@ -23,7 +23,7 @@ const ReceitaCriada = () => {
 
     async function Merge(){
         setPage(page+1)
-        
+
     }
 
     useEffect(()=>{
@@ -44,7 +44,7 @@ const ReceitaCriada = () => {
               )
           })
           }
-          <TouchableOpacity style={{display:(show)?"flex:":"none"}}>
+          <TouchableOpacity>
             <Text style={style.verMais}>Ver mais</Text>
           </TouchableOpacity>
       </Layout>
