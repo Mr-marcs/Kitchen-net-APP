@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
-import { Layout, Text } from '@ui-kitten/components';
+import { StyleSheet, View, Image, TouchableHighlight, Button, ScrollView, Text } from 'react-native';
+import { Layout } from '@ui-kitten/components';
 import Header from '@components/ReceitaFeed/header/header'
 import ImageRecipe from './imageRecipe/ImageRecipe';
 import RecipeInfo from './RecipeInfo/RecipeInfo';

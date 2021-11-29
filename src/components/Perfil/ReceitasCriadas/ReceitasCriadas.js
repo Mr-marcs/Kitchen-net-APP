@@ -7,18 +7,20 @@ import { base_url,image_url } from '@src/config/base_url.config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/core';
 
 const ReceitaCriada = () => {
     
-    const [recipes, setRecipes] = useState();
+    const [recipes, setRecipes] = useState();    
     const [page,setPage] = useState(0);
     const [show,setShow] = useState(true);
+    const navigation = useNavigation();    
 
     async function GetRecipe(){
         const token = await AsyncStorage.getItem('token');
-        const result = await axios.post(base_url + '/myrecipes',{page:page},{headers: {token}}); 
-    
-        setRecipes(result.data)
+        const result = await axios.post(base_url + '/myrecipes',{page:page},{headers: {token}});               
+        setRecipes(result.data);
+        
     }
 
     async function Merge(){
@@ -32,7 +34,7 @@ const ReceitaCriada = () => {
 
     return (
       <Layout style={style.container}>
-          <Text style={style.text}>Receitas Criadas:</Text>
+          <Text style={style.text}>Receitas Aprovadas:</Text>
           
           {(!recipes)? <LoadingComponent/>
           :
@@ -44,7 +46,8 @@ const ReceitaCriada = () => {
               )
           })
           }
-          <TouchableOpacity>
+          <TouchableOpacity  onPress={() => navigation.navigate("ListaReceitas", {image: "minhas_aprovadas.jpg", name: "Minhas Receitas Aprovadas", 
+            authorLogin: "victor@gmail.com", authorName: "Victor Ferreira", date: "Data", playlistId: 5})}>
             <Text style={style.verMais}>Ver mais</Text>
           </TouchableOpacity>
       </Layout>

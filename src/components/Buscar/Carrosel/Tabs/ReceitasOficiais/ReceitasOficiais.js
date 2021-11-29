@@ -8,7 +8,6 @@ const ReceitasOFiciais = () => {
     return (
         <ScrollView style={style.container}>
             <Receita verified/>
-            <Receita verified/>
         </ScrollView>
     );
 }
