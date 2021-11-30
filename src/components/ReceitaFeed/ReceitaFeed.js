@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, TouchableHighlight } from 'react-native';
-import { Layout, Text } from '@ui-kitten/components';
+import { StyleSheet, View, Image, TouchableHighlight, Button, ScrollView, Text } from 'react-native';
+import { Layout } from '@ui-kitten/components';
 import Header from '@components/ReceitaFeed/header/header'
 import ImageRecipe from './imageRecipe/ImageRecipe';
 import RecipeInfo from './RecipeInfo/RecipeInfo';
@@ -12,7 +12,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const ReceitaFeed = (props) => {
   const navigation = useNavigation();
-  const id = props.Autor;
+  const id = props.Key;
 
   
   const [imageF,setImage] = useState();
@@ -23,7 +23,6 @@ const ReceitaFeed = (props) => {
     const token = await AsyncStorage.getItem('token');    
     const response = await axios.get(base_url + `/users/profiles/${id}`,{headers:{token:token}});
     const image = response.data.result.user.image_url;
-    
     setImage(image);
     setUser(response.data.result.user.AmIFollowing) 
   }
@@ -35,7 +34,7 @@ const ReceitaFeed = (props) => {
   return (
     <>
       <Header Key={props.Key} Seguindo={user} Autor={props.Autor} Data={props.Data} src={image_url + '/' + imageF} />
-        <TouchableOpacity onPress={() => navigation.navigate("ReceitaHome", { RecipeId: props.Key, RecipeAuthor: props.Autor,  })} style={style.container}> 
+        <TouchableOpacity onPress={() => navigation.navigate("ReceitaHome", {props})} style={style.container}> 
           <ImageRecipe Image={props.Image}/>
         </TouchableOpacity>
       <RecipeInfo Titulo={props.Titulo} NumeroEtapas={props.Etapas} Laikado={props.Laikado} Dificuldade={props.Dificuldade} NumeroPorcao={props.NumeroPorcao} Like={props.Likes} Comment={props.Comment} />

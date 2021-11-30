@@ -10,7 +10,7 @@ const imagencategoria = {uri: 'https://i2.wp.com/mercadoeconsumo.com.br/wp-conte
 
 const Header = (props) => {
     const navigation = useNavigation();
-    console.log(props)  
+    //console.log(props)  
     return (
       <View  style={style.container}>
         <Image source={{uri: props.Imagem}} style={style.image}/>

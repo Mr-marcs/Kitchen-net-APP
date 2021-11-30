@@ -9,7 +9,6 @@ import Icon from 'react-native-vector-icons/Entypo';
 
 const Receita = (props) => {
     const navigation = useNavigation();
-    const coisa = {props}
     return (
         <View style={style.container}>
             <TouchableWithoutFeedback  onPress={() => navigation.navigate("ReceitaHome",{props})}>

@@ -11,8 +11,9 @@ import axios from 'axios';
 import { base_url } from '@src/config/base_url.config';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LoadingComponent from '@components/Loading/Component/LoadingComponent';
+import { useFocusEffect } from '@react-navigation/core';
 
-const Perfil = (props) => {
+const Perfil = ({navigation}) => {
   const [user,setUser] = useState();
 
   async function GetUserInfo(){
@@ -22,13 +23,14 @@ const Perfil = (props) => {
     const result = await axios.get(base_url + '/user',{headers:{
       token: token
     }})
-
     setUser(result.data.result.user)
+  
+    
   }
   
-  useEffect(()=>{
+  useFocusEffect(()=>{
     GetUserInfo();
-  },[])
+  })
 
   return (
     <View style={style.container}>
@@ -38,7 +40,7 @@ const Perfil = (props) => {
         :
         <Screen>
             <PersonalInfo Id={user.login} Nome={user.name} Seguidores={user.followers} Seguindo={user.following} />
-            <ProgressBar Level={user.level.current_level} Atual={user.level.current_xp} Proximo={user.level.xp_to_next_level}/>
+            <ProgressBar Level={user.current_level} Atual={user.level.current_xp} Proximo={user.level.xp_to_next_level}/>
             <ConfigButton />
             <ReceitaCriada />
             <ListasReceitas Login={user.login} />

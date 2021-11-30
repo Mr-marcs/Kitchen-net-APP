@@ -7,17 +7,22 @@ import {base_url} from '@src/config/base_url.config';
 import axios from 'axios';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useFocusEffect } from '@react-navigation/core';
 
 const Header = (props) => {
   
   const [url,setUrl] = useState();
-  const [seguindo,setSeguindo] = useState(props.Seguindoa);
-  const [color,setColor] = useState('#f24333');
+  const [seguindo,setSeguindo] = useState();
+  const [color,setColor] = useState();
   
+  
+
   useState(()=>{
       setSeguindo(props.Seguindo);
       (seguindo) ? setColor('#818181') : setColor("#f24333");
   },[])
+
+  
 
   async function handler(){
     
@@ -26,13 +31,15 @@ const Header = (props) => {
     if(seguindo){
       axios.post(base_url + `/user/unfollow/${props.Key}`,({}),({headers:{token:token}}))
       
-      setSeguindo(!seguindo)
+      setSeguindo(false)
     }
     else {
       axios.post(base_url + `/user/follow/${props.Key}`,({}),({headers:{token:token}}))
-      setSeguindo(!seguindo);
+      setSeguindo(true);
     }
+    (seguindo) ? setColor('#818181') : setColor("#f24333");
   }
+  //console.log(props.src);
   return (
     <Layout style={style.container}>
         <Layout style={style.linha1}>
@@ -41,7 +48,7 @@ const Header = (props) => {
                 <Layout style={style.linha1}>
                     <Text>{props.Autor}</Text>
                     <TouchableOpacity onPress={()=>{handler()}}>
-                      <Text style={{'fontWeight': 'bold','color':color}}> - {(seguindo)?"seguindo":"seguir"}</Text>
+                      <Text style={{'fontWeight': 'bold','color':(seguindo)? "#818181": "#f24333"}}> - {(seguindo)?"seguindo":"seguir"}</Text>
                     </TouchableOpacity>
                 </Layout>
                 <Text style={style.data}>{props.Data}</Text>

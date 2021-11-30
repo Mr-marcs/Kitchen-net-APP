@@ -61,6 +61,7 @@ const Buscar = () => {
             </View>
             <Text>{pesquisa}</Text>
             {/*<EventArea />*/}
+            <Tabs/>
         </View>
     );
 }

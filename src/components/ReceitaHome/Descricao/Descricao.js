@@ -8,6 +8,7 @@ const Descricao = (props) => {
     
     return (
         <Layout  style={style.container}>
+            <View style={{Bottom:0}}>
             <Text style={style.titulo}>Igredientes: </Text>
             {(!props.Igredientes)? <LoadingComponent/>
             :
@@ -19,6 +20,7 @@ const Descricao = (props) => {
             }        
             <Text style={style.titulo}>Etapas: </Text>
             <Etapa Etapa={props.Etapa}/>
+            </View>
         </Layout>
     );
 }

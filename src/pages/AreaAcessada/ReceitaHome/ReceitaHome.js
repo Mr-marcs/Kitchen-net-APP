@@ -13,20 +13,21 @@ import LoadingComponent from '@components/Loading/Component/LoadingComponent';
 
 const ReceitaHome = ({route}) => {
     const navigation = useNavigation();
-    const recipe = route.params;
+    const recipe = route.params.props;
     
     const [recipeInfo, setRecipeInfo] = useState();
 
     async function GetRecipe(){
         const token = await AsyncStorage.getItem('token');
-        console.log(token)
+        //console.log(token)
+        
         const result = await axios.post(base_url + `/recipe/${recipe.RecipeId}`,{author: recipe.RecipeAuthor,amount:0},
         {
             headers: {
                 token:token
             }
         })
-        console.log(result)
+        //console.log(result.data)
         setRecipeInfo(result.data.recipe)
     }
 
@@ -40,20 +41,21 @@ const ReceitaHome = ({route}) => {
             {(!recipeInfo)? <LoadingComponent/>
             :
             <>
-            <Header IdDificuldade={recipeInfo.Difficulty.Id} Imagem={recipe.Imagem} Porcao={recipeInfo.Portions}/>
+            
             <ScrollView>
+            <Header IdDificuldade={recipeInfo.Difficulty.Id} Imagem={recipe.Imagem} Porcao={recipeInfo.Portions}/>
                 <ReceitaMenu Descricao={recipeInfo.Description} Nome={recipeInfo.Name} Dificuldade={recipeInfo.Difficulty.Name} Laikado={recipeInfo.Is_liked} Likes={recipe.like}/>
                 <TabView
                     selectedIndex={selectedIndex}
                     onSelect={index => setSelectedIndex(index)}
-                >
+                >                                        
                     <Tab title="Descrição">
                         {
                         (!recipe)? <LoadingComponent/>
                         :
                         <Descricao Etapa={recipeInfo.Stepes} Igredientes={recipeInfo.Igredients}/>
                         }
-                    </Tab>
+                    </Tab>                                     
                     <Tab title="Comentários">
                         <Comentarios IdReceita={recipe.RecipeId} Login={recipe.RecipeAuthor}/>
                     </Tab>

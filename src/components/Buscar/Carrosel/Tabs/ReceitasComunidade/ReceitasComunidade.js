@@ -6,7 +6,6 @@ const ReceitasComunidade = () => {
     return (
         <ScrollView style={style.container}>
             <Receita />
-            <Receita />
         </ScrollView>
     );
 }
