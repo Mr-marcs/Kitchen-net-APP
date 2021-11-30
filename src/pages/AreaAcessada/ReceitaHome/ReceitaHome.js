@@ -41,20 +41,21 @@ const ReceitaHome = ({route}) => {
             {(!recipeInfo)? <LoadingComponent/>
             :
             <>
-            <Header IdDificuldade={recipeInfo.Difficulty.Id} Imagem={recipe.Imagem} Porcao={recipeInfo.Portions}/>
+            
             <ScrollView>
+            <Header IdDificuldade={recipeInfo.Difficulty.Id} Imagem={recipe.Imagem} Porcao={recipeInfo.Portions}/>
                 <ReceitaMenu Descricao={recipeInfo.Description} Nome={recipeInfo.Name} Dificuldade={recipeInfo.Difficulty.Name} Laikado={recipeInfo.Is_liked} Likes={recipe.like}/>
                 <TabView
                     selectedIndex={selectedIndex}
                     onSelect={index => setSelectedIndex(index)}
-                >
+                >                                        
                     <Tab title="Descrição">
                         {
                         (!recipe)? <LoadingComponent/>
                         :
                         <Descricao Etapa={recipeInfo.Stepes} Igredientes={recipeInfo.Igredients}/>
                         }
-                    </Tab>
+                    </Tab>                                     
                     <Tab title="Comentários">
                         <Comentarios IdReceita={recipe.RecipeId} Login={recipe.RecipeAuthor}/>
                     </Tab>

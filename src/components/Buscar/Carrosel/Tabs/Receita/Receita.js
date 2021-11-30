@@ -82,12 +82,12 @@ const Receita = (props) => {
 
   const [recipe,setRecipe] = useState();
   const [page,setPage] = useState(0);
-  const [search,setSearch] = useState("chup")
+  const [search,setSearch] = useState("pic")
 
   async function getFeedRecipes() {
     const token = await AsyncStorage.getItem('token');
     
-    const result = null;
+    let result = null;
     if (props.verified){
         result = await axios.post(base_url + '/recipe/official/search',{page: page, search: search},{
             headers:{
@@ -112,9 +112,7 @@ const Receita = (props) => {
     },[])
 
   return (
-    <View>
-        <ScrollView>        
-          <Screen>
+    <View>       
             {(!recipe)? <LoadingComponent /> :
             (recipe.map(item=>{
               return(
@@ -130,8 +128,6 @@ const Receita = (props) => {
               )
               }))
             }
-          </Screen>
-        </ScrollView>
     </View>
   );
 }
